@@ -11,4 +11,7 @@ Installation Instructions
 4. Install the requirements
    "pip3 install -r requirements.txt"
 5. Start the server
-   "python3 ./manage.py runserver"
+   "python3 ./manage.py runserver"   
+6. Open browser and search
+   "http://localhost:8000/"
+   
