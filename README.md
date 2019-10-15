@@ -1,8 +1,16 @@
 # FullandFit
-
 A web application designed to slim thighs and save lives
 
-Installation Instructions
+# Environment  
+Tested on 
+1. Ubuntu 18.04
+
+# Dependencies 
+1. Django2.2.5
+2. pytz2019.2
+3. sqlparse0.3.0
+
+# Installation Instructions
 1. Clone the repository
 2. In the cloned folder create a python3 virtual environment
    "python3 -m venv venv"
