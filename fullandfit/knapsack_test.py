@@ -45,8 +45,8 @@ def unbounded_knapsack(v, w, cap):
     return sack[cap], items[cap]
 
 if __name__ == "__main__":
-    v = [600, 1200, 760]
-    w = [599, 899, 499]
+    v = [600, 1200, 760, 400, 1200]
+    w = [599, 899, 499, 299, 999]
     c = 10000
 
     sack, items= unbounded_knapsack(v, w, c)

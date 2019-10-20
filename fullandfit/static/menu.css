@@ -1,0 +1,21 @@
+#item_selection_table{
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+#macronutrient_parameters_table{
+    width: 50%;
+    background-color: grey;
+}
+
+#go_button{
+    background-color: lawngreen;
+}
+
+#reset_button{
+    background-color: palevioletred;
+}
+
+#reset_button a{
+    text-decoration: none;
+}

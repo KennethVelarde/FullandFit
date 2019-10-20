@@ -25,6 +25,7 @@ def menu_page(request):
 
     if request.method == "POST":
         item_list = request.POST.getlist('items')
+        print(request.POST.dict())
         for id in item_list:
             id = int(id)
             items.append(test_menu[id])
