@@ -6,10 +6,15 @@
     <h1>Menu Page</h1>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
+    <script src="{% static "js/menu.js" %}"></script>
+
+    <button id="open_btn" onclick="open_nutrition()">&#9775; Set Nutritional Parameters</button>
 
     <form method="post" >
         {% csrf_token %}
-        <div id="nutrition_parameters">
+        <div id="nutrition_parameters" class="sidepanel">
+            <a href="javascript:void(0)" class="close_btn" onclick="close_nutrition()">&times;</a>
+
             <table id="macronutrient_parameters_table">
                 <tr>
                     <td>Price</td>
@@ -51,6 +56,7 @@
                 </tr>
             </table>
         </div>
+
         <div id="item_selection">
             <table id="item_selection_table">
                 <tr>
