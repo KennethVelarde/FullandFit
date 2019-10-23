@@ -1,0 +1,10 @@
+.tile {
+    float: left;
+    width: 20%;
+    padding: 5px;
+}
+
+.thumbnail {
+    width: 200px;
+    height: 200px;
+}

@@ -1,6 +1,11 @@
+import os
+import pathlib
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from FullandFit.settings import STATIC_ROOT
 
+IMG_DIR = os.path.join(STATIC_ROOT, "img")
 
 def index(request):
     return redirect('home')
@@ -11,7 +16,12 @@ def home(request):
 
 
 def restaurants_page(request):
-    return render(request, "restaurants.html")
+    thumbnail_path = os.path.join(IMG_DIR, "thumbnails")
+    thumbnails = os.listdir(thumbnail_path)
+
+    ctx = {"thumbnails": thumbnails}
+
+    return render(request, "restaurants.html", context=ctx)
 
 
 def menu_page(request):

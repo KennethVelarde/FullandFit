@@ -1,0 +1,19 @@
+#start_button a{
+    text-decoration: none;
+}
+
+#start_pane {
+    height: 100%;
+    display: table-cell;
+    display: block;
+}
+
+#start_button {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    padding: 5em;
+    font-size: xx-large;
+    border-radius: 3em;
+    background-color: lawngreen;
+}
