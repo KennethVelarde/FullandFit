@@ -1,5 +1,7 @@
 import os
 import pathlib
+from fullandfit.nutrition_optimization import *
+
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -37,17 +39,48 @@ def menu_page(request):
 
     items = []
 
-    if request.method == "POST":
+    if request.method == "POST" and request.POST.getlist('items') is not None:
         item_list = request.POST.getlist('items')
-        print(request.POST.dict())
+        params = request.POST.dict()
+        # print(params)
+
         for id in item_list:
             id = int(id)
             items.append(test_menu[id])
 
+        nutrient = ""
+        value = 0
+        price = 0
+
+        if params["price"] != '':
+            price = float(params["price"])
+
+        if params["carbs"] != '':
+            value = int(params["carbs"])
+            nutrient = "carbs"
+        elif params["protein"] != '':
+            value = int(params["protein"])
+            nutrient = "protein"
+        elif params["fat"] != '':
+            value = int(params["fat"])
+            nutrient = "fat"
+        elif params["calories"] != '':
+            value = int(params["calories"])
+            nutrient = "calories"
+
+        if nutrient != "":
+            items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, limit=5)
+            items = sort_items_by_nutrient(items, nutrient, reverse=True)
+            items = get_combos_close_to(items, nutrient, value)
+            items = compact_combos(items)
+
+        if price != "":
+            items = remove_items_conditionally(items, "price", lambda x, y: x <= y, limit=price)
+
+
     else:
         for k in test_menu.keys():
             items.append(test_menu[k])
-
 
     ctx = {"items": items}
 
