@@ -4,17 +4,56 @@ def unbounded_knapsack(v, w, cap):
     n = len(v)
     sack = [0] * (cap + 1)
     items = [-1] * (cap + 1)
+    solutions = dict()
 
     for j in range(1, cap + 1):
         items[j] = items[j - 1]
+        solutions[j] = []
         max = sack[j - 1]
         for i in range(n):
             x = j - w[i]
-            if x >= 0 and sack[x] + v[i] > max:
+            if x >= 0 and sack[x] + v[i] >= max:
                 max = sack[x] + v[i]
                 items[j] = i
+                solutions[j].append(i)
             sack[j] = max
-    return sack[cap], items[cap]
+    return sack[cap]
+
+
+def get_target(items, nutrient, value):
+    items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, limit=5)
+    items = sort_items_by_nutrient(items, nutrient, reverse=True)
+    items = get_combos_close_to(items, nutrient, value)
+    items = compact_combos(items)
+
+    return items
+
+
+def get_max(items, nutrient, pricepoint):
+
+    # convert pricepoint to cents
+    pricepoint *= 100
+    pricepoint = int(pricepoint)
+
+    # construct an array of weights and an array of values
+    w = []
+    v = []
+    for item in items:
+        v.append(item[nutrient])
+
+        # convert price to cents
+        price = item["price"]
+        price *= 100
+        price = int(price)
+
+        w.append(price)
+
+    # get the maximum possible value from the two arrays
+    maximum = unbounded_knapsack(v, w, pricepoint)
+
+    return get_target(items, nutrient, maximum)
+
+
 
 
 def compact_description(description):

@@ -13,46 +13,62 @@
     <form method="post" >
         {% csrf_token %}
         <div id="nutrition_parameters" class="sidepanel">
+            <div id="algorithm_selection">
+                <table>
+                    <tr>
+                        <td class="radiobutton">
+                            <input type="radio" id="max" name="algorithm_selection" value="max"/>
+                            <label for="max">Maximize</label>
+                        </td>
+                        <td class="radiobutton">
+                            <input type="radio" id="min" name="algorithm_selection" value="min"/>
+                            <label for="min">Minimize</label>
+                        </tdi>
+                        <td class="radiobutton">
+                            <input type="radio" id="target" name="algorithm_selection" value="target"/>
+                            <label for="target">Target</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
             <a href="javascript:void(0)" class="close_btn" onclick="close_nutrition()">&times;</a>
 
             <table id="macronutrient_parameters_table">
                 <tr>
-                    <td>Price</td>
-                    <td><input type="number" name="price" step="0.01" placeholder="Amount to spend" ></td>
+                    <td>Price $</td>
+                    <td><input type="number" name="price" step="0.01" placeholder="Enter amount in USD" ></td>
                 </tr>
-                <tr>
-                    <td>Calories</td>
-                    <td><input type="number" name="calories"></td>
-                </tr>
-                <tr>
-                    <td>Carbs</td>
-                    <td><input type="number" name="carbs"></td>
-                    <td>
-                        <select name="carb_measure">
-                            <option value="g">g</option>
-                            <option value="percent">%</option>
-                        </select>
+                <tr class="radiobuttons">
+                    <td class="radiobutton">
+                        <input type="radio" id="caloriesbtn" name="nutrient_selection" value="calories"/>
+                        <label for="caloriesbtn">Calories</label>
                     </td>
+                    <td><input type="number" name="calories" value="0"></td>
+                    <td><p>kCal</p></td>
                 </tr>
                 <tr>
-                    <td>Protein</td>
-                    <td><input type="number" name="protein"></td>
-                    <td>
-                        <select name="protein_measure">
-                            <option value="g">g</option>
-                            <option value="percent">%</option>
-                        </select>
+                    <td class="radiobutton">
+                        <input type="radio" id="carbsbtn" name="nutrient_selection" value="carbs"/>
+                        <label for="carbsbtn">Carbs</label>
                     </td>
+                    <td><input type="number" name="carbs" value="0"></td>
+                    <td><p>grams</p></td>
                 </tr>
                 <tr>
-                    <td>Fat</td>
-                    <td><input type="number" name="fat"></td>
-                    <td>
-                        <select name="fat_measure">
-                            <option value="g">g</option>
-                            <option value="percent">%</option>
-                        </select>
+                    <td class="radiobutton">
+                        <input type="radio" id="proteinbtn" name="nutrient_selection" value="protein"/>
+                        <label for="proteinbtn">Protein</label>
                     </td>
+                    <td><input type="number" name="protein" value="0"></td>
+                    <td><p>grams</p></td>
+                </tr>
+                <tr>
+                    <td class="radiobutton">
+                        <input type="radio" id="fatbtn" name="nutrient_selection" value="fat"/>
+                        <label for="fatbtn">Fat</label>
+                    </td>
+                    <td><input type="number" name="fat" value="0"></td>
+                    <td><p>grams</p></td>
                 </tr>
             </table>
         </div>
