@@ -42,14 +42,12 @@ def unbounded_knapsack(v, w, cap):
                 max = sack[x] + v[i]
                 items[j] = i
             sack[j] = max
-    return sack[cap], items[cap]
+    return sack[cap]
 
 if __name__ == "__main__":
-    v = [600, 1200, 760, 400, 1200]
-    w = [599, 899, 499, 299, 999]
-    c = 10000
+    v = [2, 3, 5, 7, 2]
+    w = [1, 3, 5, 7, 2]
+    c = 10
 
-    sack, items= unbounded_knapsack(v, w, c)
-
-    print(sack)
-    print(items)
+    max = unbounded_knapsack(v, w, c)
+    print(max)

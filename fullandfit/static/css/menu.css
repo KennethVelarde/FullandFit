@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 
-#macronutrient_parameters_table{
+#nutrient_parameters{
     width: 50%;
     background-color: grey;
 }
@@ -35,7 +35,7 @@
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: grey; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -77,4 +77,51 @@
 
 #open_btn:hover {
   background-color: #444;
+}
+
+/* radio button styling */
+
+.radiobutton {
+  list-style-type: none;
+  margin: 25px 0 0 0;
+  padding: 0;
+}
+
+.radiobutton {
+  float: left;
+  margin: 0 5px 0 0;
+  width: 100px;
+  height: 40px;
+  position: relative;
+}
+
+.radiobutton label,
+.radiobutton input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.radiobutton input[type="radio"] {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.radiobutton input[type="radio"]:checked+label,
+.Checked+label {
+  background: yellow;
+}
+
+.radiobutton label {
+  padding: 5px;
+  border: 1px solid #CCC;
+  cursor: pointer;
+  z-index: 90;
+}
+
+.radiobutton label:hover {
+  background: #DDD;
 }
