@@ -1,3 +1,4 @@
+@ -1,22 +1,10 @@
 """FullandFit URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,8 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 urlpatterns = [
-    path('', include("fullandfit.urls")),
-    path('admin/', admin.site.urls),
+     path('', include("fullandfit.urls")),
+     path('admin/', admin.site.urls),
 ]
