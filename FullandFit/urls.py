@@ -1,4 +1,3 @@
-@ -1,22 +1,10 @@
 """FullandFit URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
