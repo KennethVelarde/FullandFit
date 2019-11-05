@@ -140,7 +140,7 @@ def compact_combos(combos):
 
         # add all the items in a combo together
         for item in combo:
-            item_list += "{}|".format(item["name"])
+            item_list += "{}|".format(item["name"].strip())
             compact_combo["price"] += item["price"]
             compact_combo["calories"] += item["calories"]
             compact_combo["carbs"] += item["carbs"]

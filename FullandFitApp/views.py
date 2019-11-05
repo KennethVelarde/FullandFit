@@ -31,7 +31,7 @@ def menu_page(request):
 
 
     # make database selection
-    menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/roundtable.csv"))
+    menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/Carl's_Jr_Menu.csv"))
 
     items = []
 
@@ -68,7 +68,6 @@ def menu_page(request):
             items = get_target(items, nutrient, value)
         elif algorithm == "max":
             items = get_max(items, nutrient, price)
-
 
         if price > 0:
             items = remove_items_conditionally(items, "price", lambda x, y: x <= y, limit=price)
