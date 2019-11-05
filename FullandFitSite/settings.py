@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'fullandfit',
+    'FullandFitApp',
 ]
 
 MIDDLEWARE = [
@@ -51,12 +51,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'FullandFit.urls'
+ROOT_URLCONF = 'FullandFitSite.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'fullandfit/templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'FullandFitApp/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FullandFit.wsgi.application'
+WSGI_APPLICATION = 'FullandFitSite.wsgi.application'
 
 
 # Database
@@ -121,4 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'fullandfit/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'FullandFitApp/static')

@@ -4,7 +4,7 @@ from django.db import models
 
 class Carls(models.Model): 
 	item = models.CharField(max_length=120) 
-	id = models.IntegerField()
+	id = models.IntegerField(primary_key=True)
 	price = models.FloatField()
 	calories = models.FloatField()
 	carbs = models.FloatField()
@@ -13,7 +13,7 @@ class Carls(models.Model):
 	
 class TacoBell(models.Model): 
 	item = models.CharField(max_length=120) 
-	id = models.IntegerField()
+	id = models.IntegerField(primary_key=True)
 	price = models.FloatField()
 	calories = models.FloatField()
 	carbs = models.FloatField()
@@ -22,7 +22,7 @@ class TacoBell(models.Model):
 	
 class Den(models.Model): 
 	item = models.CharField(max_length=120) 
-	id = models.IntegerField()
+	id = models.IntegerField(primary_key=True)
 	price = models.FloatField()
 	calories = models.FloatField()
 	carbs = models.FloatField()
@@ -31,7 +31,7 @@ class Den(models.Model):
 	
 class RoundTable(models.Model): 
 	item = models.CharField(max_length=120) 
-	id = models.IntegerField()
+	id = models.IntegerField(primary_key=True)
 	price = models.FloatField()
 	calories = models.FloatField()
 	carbs = models.FloatField()

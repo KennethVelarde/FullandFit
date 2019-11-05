@@ -1,5 +1,5 @@
 from django.urls import path
-from fullandfit import views
+from FullandFitApp import views
 
 urlpatterns = [
     path('', views.index, name="index"),

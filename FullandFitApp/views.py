@@ -1,11 +1,11 @@
 import os
 import pathlib
-from fullandfit.nutrition_optimization import *
-from fullandfit.csv_parse import *
+from FullandFitApp.nutrition_optimization import *
+from FullandFitApp.csv_parse import *
 
 
 from django.shortcuts import render, redirect
-from FullandFit.settings import STATIC_ROOT
+from FullandFitSite.settings import STATIC_ROOT
 
 IMG_DIR = os.path.join(STATIC_ROOT, "img")
 
