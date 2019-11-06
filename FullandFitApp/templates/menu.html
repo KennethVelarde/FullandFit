@@ -99,7 +99,7 @@
              {% endfor %}
             </table>
             <input type="submit" id="go_button" name="Go" value="GO!" />
-            <button id="reset_button"><a href="{% url "menu" %}">Reset</a></button>
+            <button id="reset_button"><a href="{% url "menu" menu_id %}">Reset</a></button>
         </div>
     </form>
 {% endblock %}

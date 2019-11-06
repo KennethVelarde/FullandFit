@@ -26,12 +26,13 @@ def restaurants_page(request):
     return render(request, "restaurants.html", context=ctx)
 
 
-def menu_page(request):
+def menu(request, menu_id):
 
-
+    # todo: convert to draw from database
+    menu_csvfile = menu_id.split('.')[0]
 
     # make database selection
-    menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/Carl's_Jr_Menu.csv"))
+    menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
 
     items = []
 
@@ -74,7 +75,7 @@ def menu_page(request):
     else:
         items = menu
 
-    ctx = {"items": items}
+    ctx = {"items": items, "menu_id": menu_id}
 
     return render(request, "menu.html", context=ctx)
 

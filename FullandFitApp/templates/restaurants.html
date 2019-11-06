@@ -11,8 +11,7 @@
 {#                <tr>#}
 {#                    <td>#}
                         <div class="tile">
-                            <a href="menu"><img class="thumbnail" src="../static/img/thumbnails/{{ t }}" alt="{{ t }}"></a>
-                            <p>{{ t }}</p>
+                            <a href="{% url 'menu' menu_id=t %}"><img class="thumbnail" src="../static/img/thumbnails/{{ t }}" alt="{{ t }}"></a>
                         </div>
 {#                    </td>#}
 {#                </tr>#}
