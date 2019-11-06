@@ -1,6 +1,7 @@
 html, body{
     margin:0;
     padding:0;
+    overflow:hidden;
 }
 #start_button a{
     text-decoration: none;
@@ -11,42 +12,52 @@ html, body{
     display: table-cell;
     display: block;
     background-color:#fa625f;
+/*    #fa625f*/
 /*    #b11a21*/
 /*    #feda6a;*/
 }
 #main_title{
-position: absolute;
+position: fixed;
+text-align: center;
 color:#feda6a;
-left:45%;
-top:28%;
-margin-left: -50px; 
+    
+left:50%;
+top:30%;
 font-size: 50px;
+margin-left: -145.725px; 
+margin-top: -28.5px
 }
 
 #start_button {
 
 height: 100px; 
-width: 340px; 
-position: absolute;
-left:41%;
-margin-left: -50px; 
-top: 50%; 
+width: 400px;
+position: fixed;
+    
+left:50%;
+top:50%;
 margin-top: -50px;
+margin-left: -200px;
+    
 font-size: 32px;
 border-radius: 2em;
 background-color:#d4d4dc;
 
 }
-#start_button:hover{
+/*#start_button:hover{*/
 height: 100px; 
-width: 340px; 
-position: absolute;
-left:41%;
-margin-left: -50px; 
+width: 400px; 
+position: fixed;
+    
+left:50%;
 top: 50%; 
+    
 margin-top: -50px;
+margin-left: -200px;
+/*transform: translate(-5%, -5%);*/
 font-size: 32px;
 border-radius: 2em;
+    
 color:white;
 background-color:#393f4d;
 
