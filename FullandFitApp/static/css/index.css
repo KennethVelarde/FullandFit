@@ -44,7 +44,7 @@ border-radius: 2em;
 background-color:#d4d4dc;
 
 }
-/*#start_button:hover{*/
+#start_button:hover{
 height: 100px; 
 width: 400px; 
 position: fixed;
@@ -54,7 +54,6 @@ top: 50%;
     
 margin-top: -50px;
 margin-left: -200px;
-/*transform: translate(-5%, -5%);*/
 font-size: 32px;
 border-radius: 2em;
     
