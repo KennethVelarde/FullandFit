@@ -19,11 +19,12 @@ def unbounded_knapsack(v, w, cap):
             sack[j] = max
     return sack[cap]
 
-
-def get_target(items, nutrient, value):
-    items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, limit=5)
+# todo: remove all items from the list over 110% of the queried value
+def get_target(items, nutrient, value, price):
+    items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, critical_value=5)
     items = sort_items_by_nutrient(items, nutrient, reverse=True)
-    items = get_combos_close_to(items, nutrient, value)
+    items = get_combos_close_to(items, nutrient, value, price)
+    # items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, critical_value=(value + 0.1 * value))
     items = compact_combos(items)
 
     return items
@@ -51,7 +52,7 @@ def get_max(items, nutrient, pricepoint):
     # get the maximum possible value from the two arrays
     maximum = unbounded_knapsack(v, w, pricepoint)
 
-    return get_target(items, nutrient, maximum)
+    return get_target(items, nutrient, maximum, pricepoint)
 
 
 
@@ -174,7 +175,7 @@ def sort_items_by_nutrient(items, nutrient, reverse=False):
     return sorted(items, key=lambda k: k[nutrient], reverse=reverse)
 
 
-def remove_items_conditionally(items, key, comp, limit=0):
+def remove_items_conditionally(items, key, comp, critical_value=0):
     """
     remove items from the list that make the comparator function true
     comp = lambda x, y: x <some condition> y
@@ -193,13 +194,13 @@ def remove_items_conditionally(items, key, comp, limit=0):
 
         # if the items value is acceptable then
         # add it to the output items
-        if comp(item[key], limit):
+        if comp(item[key], critical_value):
             new_items.append(item)
 
     return new_items
 
 
-def get_combos_close_to(items, nutrient, value):
+def get_combos_close_to(items, nutrient, value, pricepoint):
     """
     Function: return the combinations of items close to the
     specified nutrient value
@@ -212,6 +213,9 @@ def get_combos_close_to(items, nutrient, value):
 
     # how many of the current items to add
     count = 0
+
+    # cost of the items thus far
+    cost = 0
 
     # the combos that fall around the target value
     combos = []
@@ -232,7 +236,12 @@ def get_combos_close_to(items, nutrient, value):
         # add the item until the combo reaches the desired value
         while count * items[0][nutrient] < value:
             new_combo.append(items[0])
+
+            cost += items[0]["price"]
             count += 1
+
+            if cost > pricepoint:
+                return []
 
         # add the created combo
         combos.append(new_combo)
@@ -242,11 +251,11 @@ def get_combos_close_to(items, nutrient, value):
     # the combinations of items for count = n is [item * count] +
     # the combinations made from items other than this item minus the
     # total value that the items added
-    while count * items[0][nutrient] <= value:
+    while count * items[0][nutrient] <= value and cost < pricepoint:
 
         # calculate the solution combos that are possible at the value minus how many
         # of the current item you wish to add
-        c = get_combos_close_to(items[1:], nutrient, value - count * items[0][nutrient])
+        c = get_combos_close_to(items[1:], nutrient, value - count * items[0][nutrient], pricepoint - cost)
 
         # add the current item to the calculated combos equal to the current items
         # you wish to add
@@ -260,5 +269,6 @@ def get_combos_close_to(items, nutrient, value):
 
         # calculate again with one more of this item
         count += 1
+        cost += items[0]["price"]
 
     return combos

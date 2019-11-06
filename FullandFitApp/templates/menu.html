@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-    <h1>Menu Page</h1>
+    <h1>{{ restaurant.name }}</h1>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
     <script src="{% static "js/menu.js" %}"></script>
@@ -23,7 +23,7 @@
                         <td class="radiobutton">
                             <input type="radio" id="min" name="algorithm_selection" value="min"/>
                             <label for="min">Minimize</label>
-                        </tdi>
+                        </td>
                         <td class="radiobutton">
                             <input type="radio" id="target" name="algorithm_selection" value="target"/>
                             <label for="target">Target</label>
@@ -85,7 +85,7 @@
                     <td>Protein</td>
                     <td>Fat</td>
                 </tr>
-                {% for item in items %}
+                {% for item in menu %}
                 <tr>
                     <td><input type="checkbox" name="items" value="{{ item.id }}" checked></td>
                     {# todo: open separate page that displays order statistics #}
@@ -99,7 +99,7 @@
              {% endfor %}
             </table>
             <input type="submit" id="go_button" name="Go" value="GO!" />
-            <button id="reset_button"><a href="{% url "menu" menu_id %}">Reset</a></button>
+{#            <button id="reset_button"><a href="{% url "menu" menu_id %}">Reset</a></button>#}
         </div>
     </form>
 {% endblock %}

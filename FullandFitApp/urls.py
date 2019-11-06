@@ -5,6 +5,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('home', views.home, name="home"),
     path('restaurants', views.restaurants_page, name="restaurants"),
-    path('menu/<menu_id>/', views.menu, name="menu"),
+    path('menu/<menu_id>/<restaurant_name>/', views.menu, name="menu"),
     path('order', views.order_page, name="order"),
 ]
