@@ -9,6 +9,18 @@ from FullandFitSite.settings import STATIC_ROOT
 
 IMG_DIR = os.path.join(STATIC_ROOT, "img")
 
+
+class Restaurant:
+    def __init__(self):
+        self.name = None
+        self.logopath = None
+        self.menu = None
+        self.csvfile = None
+
+
+current_restaurant = Restaurant()
+
+
 def index(request):
     return redirect('home')
 
@@ -26,24 +38,25 @@ def restaurants_page(request):
     return render(request, "restaurants.html", context=ctx)
 
 
-def menu(request, menu_id):
+def menu(request, menu_id, restaurant_name):
+    global current_restaurant
 
     # todo: convert to draw from database
     menu_csvfile = menu_id.split('.')[0]
 
-    # make database selection
-    menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
+    # todo: refactor the current restaurant building to another function
+    current_restaurant.name = restaurant_name.split('.')[0]
+    current_restaurant.menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
 
     items = []
 
     if request.method == "POST" and request.POST.getlist('items') is not None:
-        item_list = request.POST.getlist('items')
+        item_ids = request.POST.getlist('items')
         params = request.POST.dict()
-        print(params)
 
-        for id in item_list:
-            id = int(id)
-            items.append(menu[id])
+        for item_id in item_ids:
+            item_id = int(item_id)
+            items.append(current_restaurant.menu[item_id])
 
         nutrient = ""
         value = 0
@@ -66,18 +79,22 @@ def menu(request, menu_id):
             value = int(params["calories"])
 
         if algorithm == "target":
-            items = get_target(items, nutrient, value)
+            items = get_target(items, nutrient, value, price)
         elif algorithm == "max":
             items = get_max(items, nutrient, price)
 
         if price > 0:
-            items = remove_items_conditionally(items, "price", lambda x, y: x <= y, limit=price)
+            items = remove_items_conditionally(items, "price", lambda x, y: x <= y, critical_value=price)
     else:
-        items = menu
+        items = current_restaurant.menu
 
-    ctx = {"items": items, "menu_id": menu_id}
+    ctx = {"restaurant_name": current_restaurant.name, "menu": items}
 
     return render(request, "menu.html", context=ctx)
+
+#
+# def combos_page(request):
+
 
 
 def order_page(request):

@@ -23,7 +23,7 @@
                         <td class="radiobutton">
                             <input type="radio" id="min" name="algorithm_selection" value="min"/>
                             <label for="min">Minimize</label>
-                        </td>
+                        </tdi>
                         <td class="radiobutton">
                             <input type="radio" id="target" name="algorithm_selection" value="target"/>
                             <label for="target">Target</label>
@@ -85,7 +85,7 @@
                     <td>Protein</td>
                     <td>Fat</td>
                 </tr>
-                {% for item in menu %}
+                {% for item in restaurant.menu %}
                 <tr>
                     <td><input type="checkbox" name="items" value="{{ item.id }}" checked></td>
                     {# todo: open separate page that displays order statistics #}
