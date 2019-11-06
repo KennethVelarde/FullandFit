@@ -4,10 +4,11 @@
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
-
     <div id="start_pane">
-        <a href="{% url "restaurants" %}">
-            <button id="start_button">Get Full and Fit!</button>
+        <div id = "main_title">Full and Fit</div>
+        <a href="{% url "restaurants" %}">       
+            <button id="start_button" >Start!</button>
         </a>
+<!--        <div id="credits">Created by Joey, Sara, Sana, Kenneth, and Ruth</div>-->
     </div>
 {% endblock %}
