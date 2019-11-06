@@ -17,7 +17,7 @@ def read_menu(csv_file_name):
             item = dict()
             item["name"] = line[0]
             item["id"] = id
-            item["price"] = line[1]
+            item["price"] = line[1].strip()
 
             if len(item["price"]) == 0:
                 continue
