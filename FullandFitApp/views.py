@@ -78,13 +78,18 @@ def menu(request, menu_id, restaurant_name):
         elif nutrient == "calories":
             value = int(params["calories"])
 
+        # if price is 0, don't consider it
+        if price == 0:
+            price += 99999
+
+
         if algorithm == "target":
             items = get_target(items, nutrient, value, price)
         elif algorithm == "max":
             items = get_max(items, nutrient, price)
 
-        if price > 0:
-            items = remove_items_conditionally(items, "price", lambda x, y: x <= y, critical_value=price)
+        # if price > 0:
+        #     items = remove_items_conditionally(items, "price", lambda x, y: x <= y, critical_value=price)
     else:
         items = current_restaurant.menu
 

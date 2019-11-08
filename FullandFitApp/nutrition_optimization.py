@@ -24,8 +24,8 @@ def get_target(items, nutrient, value, price):
     items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, critical_value=5)
     items = sort_items_by_nutrient(items, nutrient, reverse=True)
     items = get_combos_close_to(items, nutrient, value, price)
-    # items = remove_items_conditionally(items, nutrient, lambda x, y: x > y, critical_value=(value + 0.1 * value))
     items = compact_combos(items)
+    items = remove_items_conditionally(items, nutrient, lambda x, y: x <= y, critical_value=(1.1 * value))
 
     return items
 
@@ -175,13 +175,13 @@ def sort_items_by_nutrient(items, nutrient, reverse=False):
     return sorted(items, key=lambda k: k[nutrient], reverse=reverse)
 
 
-def remove_items_conditionally(items, key, comp, critical_value=0):
+def remove_items_conditionally(items, key, conditional_function, critical_value=0):
     """
     remove items from the list that make the comparator function true
     comp = lambda x, y: x <some condition> y
 
     :param items: list of dictionaries
-    :param comp: conditional function for deciding exclusion
+    :param conditional_function: conditional function for deciding exclusion
     :param key: value of dictionary to perform comparison
     :return: list of dictionaries minus the dictionaries matching the comparator function
     """
@@ -194,7 +194,7 @@ def remove_items_conditionally(items, key, comp, critical_value=0):
 
         # if the items value is acceptable then
         # add it to the output items
-        if comp(item[key], critical_value):
+        if conditional_function(item[key], critical_value):
             new_items.append(item)
 
     return new_items

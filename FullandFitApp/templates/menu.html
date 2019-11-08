@@ -21,12 +21,12 @@
                             <label for="max">Maximize</label>
                         </td>
                         <td class="radiobutton">
-                            <input type="radio" id="min" name="algorithm_selection" value="min"/>
-                            <label for="min">Minimize</label>
+                            <input type="radio" id="up_to" name="algorithm_selection" value="up_to"/>
+                            <label for="up_to">Up To</label>
                         </td>
                         <td class="radiobutton">
                             <input type="radio" id="target" name="algorithm_selection" value="target"/>
-                            <label for="target">Target</label>
+                            <label for="target">Close To</label>
                         </td>
                     </tr>
                 </table>
@@ -78,12 +78,12 @@
                 <tr>
                     {#          todo: create select deselect all button#}
                     <td></td>
-                    <td>Item</td>
-                    <td>Price</td>
-                    <td>Calories</td>
-                    <td>Carbs</td>
-                    <td>Protein</td>
-                    <td>Fat</td>
+                    <td onclick=sort_table_alphabetically_by_name()>Item</td>
+                    <td onclick=sort_numerically_by_column(2)>Price</td>
+                    <td onclick=sort_numerically_by_column(3)>Calories</td>
+                    <td onclick=sort_numerically_by_column(4)>Carbs</td>
+                    <td onclick=sort_numerically_by_column(5)>Protein</td>
+                    <td onclick=sort_numerically_by_column(6)>Fat</td>
                 </tr>
                 {% for item in menu %}
                 <tr>
