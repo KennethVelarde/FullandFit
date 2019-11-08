@@ -1,22 +1,13 @@
 import os
-import pathlib
 from FullandFitApp.nutrition_optimization import *
-from FullandFitApp.csv_parse import *
+from FullandFitApp.parsing.csv_parse import *
+from FullandFitApp.restaurant.restaurant_objects import *
 
 
 from django.shortcuts import render, redirect
 from FullandFitSite.settings import STATIC_ROOT
 
 IMG_DIR = os.path.join(STATIC_ROOT, "img")
-
-
-class Restaurant:
-    def __init__(self):
-        self.name = None
-        self.logopath = None
-        self.menu = None
-        self.csvfile = None
-
 
 current_restaurant = Restaurant()
 
@@ -46,7 +37,7 @@ def menu(request, menu_id, restaurant_name):
 
     # todo: refactor the current restaurant building to another function
     current_restaurant.name = restaurant_name.split('.')[0]
-    current_restaurant.menu = read_menu(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
+    current_restaurant.menu = get_menu_from_csv(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
 
     items = []
 
@@ -56,7 +47,7 @@ def menu(request, menu_id, restaurant_name):
 
         for item_id in item_ids:
             item_id = int(item_id)
-            items.append(current_restaurant.menu[item_id])
+            items.append(current_restaurant.menu[item_id].to_dict())
 
         nutrient = ""
         value = 0
@@ -82,25 +73,16 @@ def menu(request, menu_id, restaurant_name):
         if price == 0:
             price += 99999
 
-
         if algorithm == "target":
             items = get_target(items, nutrient, value, price)
         elif algorithm == "max":
             items = get_max(items, nutrient, price)
-
-        # if price > 0:
-        #     items = remove_items_conditionally(items, "price", lambda x, y: x <= y, critical_value=price)
     else:
-        items = current_restaurant.menu
+        items = current_restaurant.get_menu_item_dictionary_array()
 
     ctx = {"restaurant_name": current_restaurant.name, "menu": items}
 
     return render(request, "menu.html", context=ctx)
-
-#
-# def combos_page(request):
-
-
 
 def order_page(request):
     return render(request, "order.html")

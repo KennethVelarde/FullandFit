@@ -1,4 +1,4 @@
-﻿Item, price  ,calories,carbs,protein,fat,egg,milk,peanuts,shellfish,soy,treenuts,wheat
+name, price  ,calories,carbs,protein,fat,egg,milk,peanuts,shellfish,soy,treenuts,wheat
 Famous Star with Cheese ,$4.35 ,670,57,28,37,1,1,0,0,1,0,1
 Super Star with Cheese ,$5.99 ,920,59,48,56,1,1,0,0,1,0,1
 Western Bacon Cheeseburger,$5.25 ,750,75,36,35,0,1,0,0,1,0,1
