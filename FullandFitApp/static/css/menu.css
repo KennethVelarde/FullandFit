@@ -1,6 +1,18 @@
+
+
+#item_selection{
+  height: 80%;
+}
+
+.allergen_icon{
+  width: 20px;
+  height: 20px;
+}
+
 #item_selection_table{
     width: 100%;
     background-color: whitesmoke;
+    overflow: scroll;
 }
 
 #nutrient_parameters{

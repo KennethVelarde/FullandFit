@@ -3,9 +3,11 @@ from FullandFitApp.nutrition_optimization import *
 from FullandFitApp.parsing.csv_parse import *
 from FullandFitApp.restaurant.restaurant_objects import *
 
-
 from django.shortcuts import render, redirect
+from django.contrib import messages
+
 from FullandFitSite.settings import STATIC_ROOT
+
 
 IMG_DIR = os.path.join(STATIC_ROOT, "img")
 
@@ -42,10 +44,12 @@ def menu(request, menu_id, restaurant_name):
     items = []
 
     if request.method == "POST" and request.POST.getlist('items') is not None:
+        print("post")
         item_ids = request.POST.getlist('items')
         params = request.POST.dict()
 
         for item_id in item_ids:
+            print(item_id)
             item_id = int(item_id)
             items.append(current_restaurant.menu[item_id].to_dict())
 
@@ -74,9 +78,16 @@ def menu(request, menu_id, restaurant_name):
             price += 99999
 
         if algorithm == "target":
-            items = get_target(items, nutrient, value, price)
+            if price > 0 and value > 0 and price < 20 and value < 2000:
+                items = get_target(items, nutrient, value, price)
+            else:
+                messages.error(request, "Dollar value must be between $0.01 and $19.99")
+                messages.error(request, "Nutrient value must be between 1 and 2000")
         elif algorithm == "max":
-            items = get_max(items, nutrient, price)
+            if price > 0 and price < 20:
+                items = get_max(items, nutrient, price)
+            else:
+                messages.error(request, "Dollar value must be between $0.01 and $19.99")
     else:
         items = current_restaurant.get_menu_item_dictionary_array()
 

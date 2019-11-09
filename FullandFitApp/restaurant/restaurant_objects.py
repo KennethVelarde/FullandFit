@@ -6,9 +6,15 @@ class Restaurant:
         self.csvfile = None
 
     def get_menu_item_dictionary_array(self):
+        ids = list(self.menu.keys())
+        ids.sort()
+
         menu_array = []
-        for menu_item in self.menu:
-            menu_array.append(menu_item.to_dict())
+
+        for id in ids:
+            item_dictionary = self.menu[id].to_dict()
+            item_dictionary["id"] = id
+            menu_array.append(item_dictionary)
 
         return menu_array
 
@@ -30,9 +36,9 @@ class MenuItem:
         self.has_wheat = False
 
     def set_members_by_dictionary(self, menu_item_dictionary):
-        self.name = menu_item_dictionary["name"]
+        self.name = menu_item_dictionary["name"].strip()
 
-        self.price = menu_item_dictionary["price"]
+        self.price = menu_item_dictionary["price"].strip()
 
         if self.price[0] is '$':
             self.price = float(self.price[1:])

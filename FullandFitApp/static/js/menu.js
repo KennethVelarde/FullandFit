@@ -6,12 +6,13 @@ function close_nutrition(){
     document.getElementById("nutrition_parameters").style.width = "0px";
 }
 
+// sort table using insertion sort
 function sort_table_alphabetically_by_name(){
-    col = 1
-    var table, rows, i, x, y;
+    col = 1;
+    var table, rows, i, j, item1, item2;
 
-    table = document.getElementById("item_selection_table")
-    rows = table.rows
+    table = document.getElementById("item_selection_table");
+    rows = table.rows;
 
     switching = true;
 
@@ -22,10 +23,10 @@ function sort_table_alphabetically_by_name(){
         for (i = 1; i < (rows.length) - 1; i++) {
 
 
-            x = rows[i].getElementsByTagName("td")[col];
-            y = rows[i + 1].getElementsByTagName("td")[col];
+            item1 = rows[i].getElementsByTagName("td")[col];
+            item2 = rows[i + 1].getElementsByTagName("td")[col];
 
-            if(x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
+            if(item1.innerText.toLowerCase() > item2.innerText.toLowerCase()) {
                 switching = true;
                 break
             }

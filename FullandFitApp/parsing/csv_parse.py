@@ -33,11 +33,12 @@ def convert_headers_and_rows_to_dictionaries(headers, rows):
 
 
 def get_menu_from_csv(filepath):
-    menu = []
+    menu = dict()
     headers, rows = get_headers_and_rows_from_csv(filepath)
     item_dictionaries = convert_headers_and_rows_to_dictionaries(headers, rows)
 
-    for dictionary in item_dictionaries:
+    for i in range(len(item_dictionaries)):
+        dictionary = item_dictionaries[i]
 
         # only consider menu items that have a price
         if dictionary["price"] is "":
@@ -45,7 +46,7 @@ def get_menu_from_csv(filepath):
 
         menu_item = MenuItem()
         menu_item.set_members_by_dictionary(dictionary)
-        menu.append(menu_item)
+        menu[i] = menu_item
 
     return menu
 # menu = get_menu_from_csv("static/Menu_CSV/CarlsJr.csv")
