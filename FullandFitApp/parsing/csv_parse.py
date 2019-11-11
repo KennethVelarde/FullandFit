@@ -45,7 +45,7 @@ def get_menu_from_csv(filepath):
             continue
 
         menu_item = MenuItem()
-        menu_item.set_members_by_dictionary(dictionary)
+        menu_item.set_members_to_csv_row(dictionary)
         menu[i] = menu_item
 
     return menu
