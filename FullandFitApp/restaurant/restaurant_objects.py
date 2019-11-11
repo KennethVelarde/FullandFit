@@ -69,9 +69,10 @@ class Combo:
     def append(self, item):
         self.items.append(item)
 
-    def convert_to_item_dictionary(self):
+    def convert_to_item_dictionary(self, id):
         combo_item = dict()
 
+        combo_item["id"] = id
         combo_item["name"] = ""
         combo_item["price"] = 0
         combo_item["calories"] = 0
@@ -110,6 +111,14 @@ class Combo:
 
         return combo_item
 
+    def to_dictionary_array(self):
+        array = []
+
+        for item in self.items:
+            array.append(item.to_dict())
+
+        return array
+
     def get_total_nutrient_value(self, nutrient):
         total_nutrients = 0
 
@@ -127,7 +136,7 @@ def get_menu_item_from_dictionary(dictionary):
 
 
 def compress_combos(combos):
-    return [combo.convert_to_item_dictionary() for combo in combos]
+    return [combos[i].convert_to_item_dictionary(i) for i in range(len(combos))]
 
 
 class MenuItem:

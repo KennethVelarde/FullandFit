@@ -125,5 +125,10 @@ def menu(request, menu_id, restaurant_name):
     return render(request, "menu.html", context=ctx)
 
 
-def order_page(request):
-    return render(request, "order.html")
+def order_page(request, combo_id):
+
+    print(len(current_combos))
+
+    combo = current_combos[combo_id].to_dictionary_array()
+
+    return render(request, "order.html", {"combo": combo})

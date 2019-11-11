@@ -21,11 +21,12 @@
                             <label for="less_than">Under</label>
                         </td>
                         <td class="radiobutton">
-                            <input type="radio" id="exactly" name="algorithm_selection" value="exactly"/>
+                            <input type="radio" id="exactly" name="algorithm_selection"
+                                   value="exactly" checked="checked"/>
                             <label for="exactly">Exactly</label>
                         </td>
                         <td class="radiobutton">
-                            <input type="radio" id="target" name="algorithm_selection" value="greater_than"/>
+                            <input type="radio" id="greater_than" name="algorithm_selection" value="greater_than"/>
                             <label for="greater_than">Over</label>
                         </td>
                     </tr>
@@ -93,7 +94,7 @@
                     <tr>
                         <td><input type="checkbox" name="items" value="{{ item.id }}" checked></td>
                         {# todo: open separate page that displays order statistics #}
-                        <td><a target="_blank" href="{% url "order" %}">{{ item.name }}</a></td>
+                        <td><a target="_blank" href="{% url "order" item.id %}">{{ item.name }}</a></td>
                         <td>
                             {% if item.has_egg %}
                                 <img class="allergen_icon" src="{% static 'img/allergen_icons/egg.svg' %}" alt="This item has egg">
