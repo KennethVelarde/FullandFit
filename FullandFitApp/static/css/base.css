@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 html,body {
     height: 90em;
-    background-color: #e6fff5;
+    background-color:#00539C;
     color:#feda6a;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Roboto', sans-serif;
 }
 #restaurant_title{
     color:#feda6a;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Roboto', sans-serif;
+    text-align: center;
 }
