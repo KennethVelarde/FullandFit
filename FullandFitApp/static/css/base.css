@@ -1,4 +1,12 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+html,body {
     height: 90em;
     background-color: #e6fff5;
+    color:#feda6a;
+    font-family: 'Poppins', sans-serif;
+}
+#restaurant_title{
+    color:#feda6a;
+    font-family: 'Poppins', sans-serif;
 }

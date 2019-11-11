@@ -4,11 +4,12 @@
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
+
     <div id="start_pane">
-        <div id= "main_title">Cheat Yo' Self</div>
+        <div class="main_title animated fadeInRightBig">Cheat Yo' Self</div>
         <a href="{% url "restaurants" %}">       
-            <button id="start_button" >Start!</button>
+            <button class="start_button animated fadeInLeftBig" >Start!</button>
         </a>
 <!--        <div id="credits">Created by Joey, Sara, Sana, Kenneth, and Ruth</div>-->
     </div>

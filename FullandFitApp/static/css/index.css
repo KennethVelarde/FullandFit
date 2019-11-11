@@ -1,66 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 html, body{
     margin:0;
     padding:0;
-    overflow:hidden;
+    height: 100%;
+    display: grid;
+    background-color:#00539C;
 }
 #start_button a{
     text-decoration: none;
 }
 
 #start_pane {
-    height: 100%;
-    display: table-cell;
-    display: block;
-    background-color:#fa625f;
-/*    #fa625f*/
+    margin: auto;
+    position:relative;
 /*    #b11a21*/
 /*    #feda6a;*/
 }
-#main_title{
-position: fixed;
-text-align: center;
-color:#feda6a;
-    
-left:50%;
-top:30%;
+
+.main_title{
+margin: auto;
 font-size: 50px;
-margin-left: -145.725px; 
-margin-top: -28.5px
+color:#feda6a;
+font-family: 'Poppins', sans-serif;
+    
+margin-left: 25px; 
+margin-bottom: 100px;
 }
 
-#start_button {
+.start_button {
 
 height: 100px; 
 width: 400px;
-position: fixed;
-    
-left:50%;
-top:50%;
-margin-top: -50px;
-margin-left: -200px;
-    
-font-size: 32px;
+margin:auto;
+position: relative;
+font-size: 50px;
+font-family: 'Poppins', sans-serif;
 border-radius: 2em;
-background-color:#d4d4dc;
+background-color:white;
 
 }
-#start_button:hover{
+.start_button:hover{
 height: 100px; 
-width: 400px; 
-position: fixed;
-    
-left:50%;
-top: 50%; 
-    
-margin-top: -50px;
-margin-left: -200px;
-font-size: 32px;
+width: 400px;
+margin:auto;
+position: relative;
+font-size: 50px;
+font-family: 'Poppins', sans-serif;
 border-radius: 2em;
     
 color:white;
 background-color:#393f4d;
 
 }
+.start_button:active{
+    height: 100px; 
+width: 400px;
+margin:auto;
+position: relative;
+font-size: 50px;
+font-family: 'Poppins', sans-serif;
+border-radius: 2em;
+    
+color:white;
+background-color:#FFD662;
+
+}
 #credits{
-bottom:5px;
+/*margin: auto;*/
 }
