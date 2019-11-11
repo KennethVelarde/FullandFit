@@ -79,13 +79,33 @@ def menu(request, menu_id, restaurant_name):
         elif nutrient == "calories":
             value = int(params["calories"])
 
+        allergens = []
+        if params["exclude_egg"] == "true":
+            allergens.append("egg")
+        if params["exclude_milk"] == "true":
+            allergens.append("milk")
+        if params["exclude_shellfish"] == "true":
+            allergens.append("shellfish")
+        if params["exclude_peanuts"] == "true":
+            allergens.append("peanuts")
+        if params["exclude_soy"] == "true":
+            allergens.append("soy")
+        if params["exclude_treenuts"] == "true":
+            allergens.append("treenuts")
+        if params["exclude_wheat"] == "true":
+            allergens.append("wheat")
+
+        items = restaurant_objects.filter_items_by_allergens(items, allergens)
+
+
         # if price is 0, don't consider it
         if price == 0:
             price += 99999
 
         if algorithm == "less_than":
             if price > 0 and value > 0 and price < 20 and value < 2000:
-                current_combos = current_restaurant.menu.get_combos_and_filter(
+                current_combos = restaurant_objects.get_combos_and_filter(
+                    items,
                     nutrient,
                     value,
                     lambda x, y: x <= y,
