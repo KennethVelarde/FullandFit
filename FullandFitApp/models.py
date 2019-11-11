@@ -37,3 +37,12 @@ class RoundTable(models.Model):
 	carbs = models.FloatField()
 	protein = models.FloatField()
 	fat = models.FloatField()
+
+class JambaJuice(models.Model):
+        item = models.CharField(max_length=120)
+        id = models.IntegerField(primary_key=True)
+        price = models.FloatField()
+        calories = models.FloatField()
+        carbs = models.FloatField()
+        protein = models.FloatField()
+        fat = models.FloatField()
