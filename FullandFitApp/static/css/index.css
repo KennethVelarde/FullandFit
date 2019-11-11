@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 html, body{
     margin:0;
     padding:0;
@@ -13,6 +13,12 @@ html, body{
 
 #start_pane {
     margin: auto;
+/*
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+*/
     position:relative;
 /*    #b11a21*/
 /*    #feda6a;*/
@@ -20,33 +26,41 @@ html, body{
 
 .main_title{
 margin: auto;
-font-size: 50px;
+font-size: 100px;
 color:#feda6a;
-font-family: 'Poppins', sans-serif;
-    
-margin-left: 25px; 
+/*font-family: 'Poppins', sans-serif;*/
+/*font-family: 'Julius Sans One', sans-serif;*/
+font-family:'Roboto', sans-serif;
+font-weight: 300;
+margin-left:-70px; 
 margin-bottom: 100px;
 }
 
 .start_button {
 
 height: 100px; 
-width: 400px;
+width: 300px;
 margin:auto;
+margin-left: 100px;
 position: relative;
+    
 font-size: 50px;
 font-family: 'Poppins', sans-serif;
+    
 border-radius: 2em;
 background-color:white;
 
 }
 .start_button:hover{
 height: 100px; 
-width: 400px;
+width: 300px;
 margin:auto;
+margin-left: 100px;
 position: relative;
+    
 font-size: 50px;
 font-family: 'Poppins', sans-serif;
+    
 border-radius: 2em;
     
 color:white;
@@ -54,9 +68,11 @@ background-color:#393f4d;
 
 }
 .start_button:active{
-    height: 100px; 
-width: 400px;
+    
+height: 100px; 
+width: 300px;
 margin:auto;
+margin-left: 100px;
 position: relative;
 font-size: 50px;
 font-family: 'Poppins', sans-serif;
@@ -65,7 +81,4 @@ border-radius: 2em;
 color:white;
 background-color:#FFD662;
 
-}
-#credits{
-/*margin: auto;*/
 }
