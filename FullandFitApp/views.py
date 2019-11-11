@@ -1,7 +1,7 @@
 import os
 from FullandFitApp import nutrition_optimization
-from FullandFitApp.parsing.csv_parse import *
-from FullandFitApp.restaurant.restaurant_objects import *
+from FullandFitApp.parsing import csv_parse
+from FullandFitApp.restaurant import restaurant_objects
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -11,7 +11,7 @@ from FullandFitSite.settings import STATIC_ROOT
 
 IMG_DIR = os.path.join(STATIC_ROOT, "img")
 
-current_restaurant = Restaurant()
+current_restaurant = restaurant_objects.Restaurant()
 current_combos = []
 
 
@@ -41,8 +41,8 @@ def menu(request, menu_id, restaurant_name):
 
     # todo: refactor the current restaurant building to another function
     current_restaurant.name = restaurant_name.split('.')[0]
-    menu_items = get_menu_from_csv(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
-    current_restaurant.menu = Menu(menu_items)
+    menu_items = csv_parse.get_menu_from_csv(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
+    current_restaurant.menu = restaurant_objects.Menu(menu_items)
 
     items = []
 
@@ -89,7 +89,7 @@ def menu(request, menu_id, restaurant_name):
                     lambda x, y: x <= y,
                     price
                 )
-                items = compress_combos(current_combos)
+                items = restaurant_objects.compress_combos(current_combos)
             else:
                 messages.error(request, "Dollar value must be between $0.01 and $19.99")
                 messages.error(request, "Nutrient value must be between 1 and 2000")
@@ -101,7 +101,7 @@ def menu(request, menu_id, restaurant_name):
                     lambda x, y: 0.9 * y <= x <= 1.1 * y,
                     price
                 )
-                items = compress_combos(current_combos)
+                items = restaurant_objects.compress_combos(current_combos)
             else:
                 messages.error(request, "Dollar value must be between $0.01 and $19.99")
                 messages.error(request, "Nutrient value must be between 1 and 2000")
@@ -113,7 +113,7 @@ def menu(request, menu_id, restaurant_name):
                     lambda x, y: x >= y,
                     price
                 )
-                items = compress_combos(current_combos)
+                items = restaurant_objects.compress_combos(current_combos)
             else:
                 messages.error(request, "Dollar value must be between $0.01 and $19.99")
                 messages.error(request, "Nutrient value must be between 1 and 2000")
