@@ -94,7 +94,7 @@ class Combo:
             combo_item["carbs"] += item.carbs
             combo_item["protein"] += item.protein
             combo_item["fat"] += item.fat
-            combo_item["egg"] = combo_item["has_egg"] or item.has_egg
+            combo_item["has_egg"] = combo_item["has_egg"] or item.has_egg
             combo_item["has_milk"] = combo_item["has_milk"] or item.has_milk
             combo_item["has_shellfish"] = combo_item["has_shellfish"] or item.has_shellfish
             combo_item["has_soy"] = combo_item["has_soy"] or item.has_soy

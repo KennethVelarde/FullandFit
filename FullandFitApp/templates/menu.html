@@ -14,6 +14,9 @@
         {% csrf_token %}
         <div id="nutrition_parameters" class="sidepanel">
             <div id="algorithm_selection">
+
+                <h1>Macronutrients</h1>
+
                 <table>
                     <tr>
                         <td class="radiobutton">
@@ -34,7 +37,7 @@
             </div>
             <a href="javascript:void(0)" class="close_btn" onclick="close_nutrition()">&times;</a>
 
-            <table id="macronutrient_parameters_table">
+            <table id="macronutrient_parameters_table" border="1px">
                 <tr>
                     <td>Price $</td>
                     <td><input type="number" name="price" step="0.01" placeholder="Enter amount in USD" ></td>
@@ -71,6 +74,71 @@
                     <td><input type="number" name="fat" value="0"></td>
                     <td><p>grams</p></td>
                 </tr>
+            </table>
+
+            <table border="1px">
+                <tr>
+                    <td></td>
+                    <td>Allergen</td>
+                    <td>Exclude</td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/egg.svg' %}" alt="Egg icon"></td>
+                    <td>Egg</td>
+                    <td>
+                        <input type="hidden" name="exclude_egg" value=false>
+                        <input type="checkbox" name="exclude_egg" value=true>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/milk.svg' %}" alt="Milk icon"></td>
+                    <td>Milk</td>
+                    <td>
+                        <input type="hidden" name="exclude_milk" value=false>
+                        <input type="checkbox" name="exclude_milk" value=true>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/shellfish.svg' %}" alt="Shellfish icon"></td>
+                    <td>Shellfish</td>
+                    <td>
+                        <input type="hidden" name="exclude_shellfish" value=false>
+                        <input type="checkbox" name="exclude_shellfish" value=true>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/soy.svg' %}" alt="Soy icon"></td>
+                    <td>Soy</td>
+                    <td>
+                        <input type="hidden" name="exclude_soy" value=false>
+                        <input type="checkbox" name="exclude_soy" value=true>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/peanuts.svg' %}" alt="Peanuts icon"></td>
+                    <td>Peanuts</td>
+                    <td>
+                        <input type="hidden" name="exclude_peanuts" value=false>
+                        <input type="checkbox" name="exclude_peanuts" value=true>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/treenuts.svg' %}" alt="Treenuts icon"></td>
+                    <td>Treenuts</td>
+                    <td>
+                        <input type="hidden" name="exclude_treenuts" value=false>
+                        <input type="checkbox" name="exclude_treenuts" value=true>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="allergen_icon" src="{% static 'img/allergen_icons/wheat.svg' %}" alt="Wheat icon"></td>
+                    <td>Wheat</td>
+                    <td>
+                        <input type="hidden" name="exclude_wheat" value=false>
+                        <input type="checkbox" name="exclude_wheat" value=true>
+                    </td>
+                </tr>
+
             </table>
         </div>
 

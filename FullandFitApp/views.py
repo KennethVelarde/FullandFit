@@ -51,6 +51,8 @@ def menu(request, menu_id, restaurant_name):
         item_ids = request.POST.getlist('items')
         params = request.POST.dict()
 
+        print(params)
+
         for item_id in item_ids:
             if item_id is "":
                 continue
