@@ -10,7 +10,7 @@
 
     <button id="open_btn" onclick="open_nutrition()">&#9775; Set Nutritional Parameters</button>
 
-    <form method="post" >
+    <form method="post" id="find_combos_form" >
         {% csrf_token %}
         <div id="nutrition_parameters" class="sidepanel">
             <div id="algorithm_selection">
@@ -200,6 +200,7 @@
                 $(document).ready(function() {
                     $('#item_selection_table').DataTable({
                         "order": [[3, "desc"]],
+                        "pageLength": 100,
                         "dataSrc": "data"
                         });
                     });

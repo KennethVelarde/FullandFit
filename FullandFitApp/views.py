@@ -117,7 +117,8 @@ def menu(request, menu_id, restaurant_name):
                 messages.error(request, "Nutrient value must be between 1 and 2000")
         elif algorithm == "exactly":
             if price > 0 and value > 0 and price < 20 and value < 2000:
-                current_combos = current_restaurant.menu.get_combos_and_filter(
+                current_combos = restaurant_objects.get_combos_and_filter(
+                    items,
                     nutrient,
                     value,
                     lambda x, y: 0.9 * y <= x <= 1.1 * y,
@@ -129,7 +130,8 @@ def menu(request, menu_id, restaurant_name):
                 messages.error(request, "Nutrient value must be between 1 and 2000")
         elif algorithm == "greater_than":
             if price > 0 and value > 0 and price < 20 and value < 2000:
-                current_combos = current_restaurant.menu.get_combos_and_filter(
+                current_combos = restaurant_objects.get_combos_and_filter(
+                    items,
                     nutrient,
                     value,
                     lambda x, y: x >= y,
