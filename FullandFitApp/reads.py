@@ -4,6 +4,7 @@ conn = sqlite3.connect('db.sqlite3')
 c = conn.cursor()
 
 def read_from_db(var):
+<<<<<<< HEAD
 	menu = {}
 	c.execute('SELECT * FROM ' + var)
 	#data = c.fetchall()
@@ -23,6 +24,17 @@ def read_from_db(var):
 
 menu = read_from_db("JambaJuice")
 print(menu["Acai Primo Bowl"])
+=======
+    c.execute('SELECT * FROM ' + var)
+    #data = c.fetchall()
+    #print(data)
+    for row in c.fetchall():
+        print(row)
+
+
+read_from_db()
+#changes
+>>>>>>> afe8f71bee686c14a3d80e3c916189a8fefe9fc4
 c.close()
 conn.close()
 

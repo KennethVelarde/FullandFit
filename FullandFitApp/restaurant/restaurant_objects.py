@@ -8,6 +8,28 @@ class Restaurant:
         self.menu = None
         self.csvfile = None
 
+def filter_items_by_allergens(items: list, allergens: list):
+
+    filtered_items = []
+
+    for item in items:
+        item_dict = item.to_dict()
+
+        allergen_free = True
+
+        for allergen in allergens:
+            key = "has_" + allergen
+            # print("Has Allergen", item_dict[key])
+            if item_dict[key]:
+                allergen_free = False
+                break
+
+        if allergen_free:
+            filtered_items.append(item)
+
+    return filtered_items
+
+
 
 class Menu:
     def __init__(self, items: dict):
@@ -29,29 +51,31 @@ class Menu:
     def get_item_by_id(self, id: int):
         return self.items[id]
 
-    def get_combos_and_filter(self, nutrient, nutrient_value, filter, pricepoint):
-        max_items_per_combo = 5
+def get_combos_and_filter(items, nutrient, nutrient_value, filter, pricepoint):
+    max_items_per_combo = 5
 
-        combos = []
+    combos = []
 
-        items = self.to_dictionary_array()
-        items = sorted(items, key=lambda k: k["price"])
+    items = [item.to_dict() for item in items]
 
-        a = len(items) - 1
+    items = sorted(items, key=lambda k: k["price"])
 
-        cost = items[a]["price"]
-        for i in range(1, max_items_per_combo):
+    a = len(items) - 1
+
+    cost = items[a]["price"]
+    for i in range(1, max_items_per_combo):
+        cost += items[a - i]["price"]
+        print(cost)
+        while cost > pricepoint and a - i > 0:
+            cost -= items[a]["price"]
+            a -= 1
             cost += items[a - i]["price"]
-            while cost > pricepoint and a - i > 0:
-                cost -= items[a]["price"]
-                a -= 1
-                cost += items[a - i]["price"]
-            for item_array in combinations(items[0:a], i + 1):
-                combo = get_combo_from_item_array(item_array)
-                if filter(combo.get_total_nutrient_value(nutrient), nutrient_value):
-                    combos.append(combo)
+        for item_array in combinations(items[0:a], i + 1):
+            combo = get_combo_from_item_array(item_array)
+            if filter(combo.get_total_nutrient_value(nutrient), nutrient_value):
+                combos.append(combo)
 
-        return combos
+    return combos
 
 
 def get_combo_from_item_array(item_array):
