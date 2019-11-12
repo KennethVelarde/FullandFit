@@ -11,11 +11,6 @@ from FullandFitSite.settings import STATIC_ROOT
 
 IMG_DIR = os.path.join(STATIC_ROOT, "img")
 
-current_restaurant = restaurant_objects.Restaurant()
-current_combos = []
-
-sales_tax = 0.075
-
 
 def index(request):
     return redirect('home')
@@ -35,9 +30,11 @@ def restaurants_page(request):
 
 
 def menu(request, menu_id, restaurant_name):
-    global current_restaurant
-    global current_combos
-    global sales_tax
+
+    # session variables
+    current_restaurant = restaurant_objects.Restaurant()
+    current_combos = []
+    sales_tax = 0
 
     # todo: convert to draw from database
     menu_csvfile = menu_id.split('.')[0]
@@ -149,19 +146,26 @@ def menu(request, menu_id, restaurant_name):
     else:
         items = current_restaurant.menu.to_dictionary_array()
 
+    # make session variables persistent across pages
+    request.session["current_restaurant"] = current_restaurant.to_dict()
+    request.session["current_combos"] = restaurant_objects.combos_to_array_of_dictionaries(current_combos)
+    request.session["sales_tax"] = sales_tax
+
     ctx = {"restaurant_name": current_restaurant.name, "menu": items}
 
     return render(request, "menu.html", context=ctx)
 
 
 def order_page(request, combo_id):
-    global sales_tax
+
+    current_combos = request.session["current_combos"]
+    sales_tax = request.session["sales_tax"]
 
     combo = current_combos[combo_id]
 
-    compressed_combo = restaurant_objects.compress_combos([combo])[0]
+    compressed_combo = restaurant_objects.compress_combo(restaurant_objects.get_combo_from_item_array(combo))
 
     subtotal = compressed_combo["price"]
     total = subtotal + subtotal * sales_tax
 
-    return render(request, "order.html", {"combo": combo.to_dictionary_array(), "subtotal": subtotal, "total": total})
+    return render(request, "order.html", {"combo": combo, "subtotal": subtotal, "total": total})

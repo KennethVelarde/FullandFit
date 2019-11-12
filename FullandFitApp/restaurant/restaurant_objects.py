@@ -6,7 +6,16 @@ class Restaurant:
         self.name = None
         self.logopath = None
         self.menu = None
-        self.csvfile = None
+
+    def to_dict(self):
+        restaurant_dict = dict()
+        restaurant_dict["name"] = self.name
+        restaurant_dict["menu"] = self.menu.to_dictionary_array()
+        restaurant_dict["logopath"] = self.logopath
+
+        return restaurant_dict
+
+
 
 def filter_items_by_allergens(items: list, allergens: list):
 
@@ -88,6 +97,15 @@ def get_combo_from_item_array(item_array):
     return Combo(menu_items)
 
 
+def combos_to_array_of_dictionaries(combos):
+    combo_array = []
+
+    for combo in combos:
+        combo_array.append(combo.to_dictionary_array())
+
+    return combo_array
+
+
 class Combo:
     def __init__(self, items):
         self.items = items
@@ -163,6 +181,24 @@ def get_menu_item_from_dictionary(dictionary):
 
 def compress_combos(combos):
     return [combos[i].convert_to_item_dictionary(i) for i in range(len(combos))]
+
+
+def compress_combo(combo):
+    return combo.convert_to_item_dictionary(0)
+
+
+def get_combo_from_item_array(item_array):
+    menu_items = []
+
+    for dictionary in item_array:
+        menu_item = MenuItem()
+        menu_item.set_members_from_dictionary(dictionary)
+        menu_items.append(menu_item)
+
+    return Combo(menu_items)
+
+
+
 
 
 class MenuItem:
