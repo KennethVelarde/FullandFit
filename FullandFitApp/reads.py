@@ -22,6 +22,7 @@ def read_from_db(var):
 		item["treenuts"] = column[11]
 		item["wheat"] = column[12]
 		menu.append(item)
+                #print(column)
 		id+=1
 	c.close()
 	conn.close()
@@ -29,3 +30,4 @@ def read_from_db(var):
 
 
 menu = read_from_db("JambaJuice")
+#print(menu[2])
