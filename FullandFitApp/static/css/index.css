@@ -28,9 +28,9 @@ html, body{
 margin: auto;
 font-size: 100px;
 color:#feda6a;
-/*font-family: 'Poppins', sans-serif;*/
+font-family: 'Poppins', sans-serif;
 /*font-family: 'Julius Sans One', sans-serif;*/
-font-family:'Roboto', sans-serif;
+/*font-family:'Roboto', sans-serif;*/
 font-weight: 300;
 margin-left:-70px; 
 margin-bottom: 100px;
@@ -41,7 +41,7 @@ margin-bottom: 100px;
 height: 100px; 
 width: 300px;
 margin:auto;
-margin-left: 100px;
+margin-left: 150px;
 position: relative;
     
 font-size: 50px;
@@ -55,7 +55,7 @@ background-color:white;
 height: 100px; 
 width: 300px;
 margin:auto;
-margin-left: 100px;
+margin-left: 150px;
 position: relative;
     
 font-size: 50px;
@@ -72,7 +72,7 @@ background-color:#393f4d;
 height: 100px; 
 width: 300px;
 margin:auto;
-margin-left: 100px;
+margin-left: 150px;
 position: relative;
 font-size: 50px;
 font-family: 'Poppins', sans-serif;
