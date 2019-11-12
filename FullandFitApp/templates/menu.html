@@ -15,6 +15,15 @@
         <div id="nutrition_parameters" class="sidepanel">
             <div id="algorithm_selection">
 
+                <table>
+                    <tr>
+                        <td>Sales Tax</td>
+                        <td><input type="number" step="0.1" name="sales_tax" value="9.5"></td>
+                        <td><h2>%</h2></td>
+                    </tr>
+                </table>
+
+
                 <h1>Macronutrients</h1>
 
                 <table>
@@ -40,7 +49,7 @@
             <table id="macronutrient_parameters_table" border="1px">
                 <tr>
                     <td>Price $</td>
-                    <td><input type="number" name="price" step="0.01" placeholder="Enter amount in USD" ></td>
+                    <td><input type="number" name="price" step="0.01" value="5" placeholder="Enter amount in USD" ></td>
                 </tr>
                 <tr class="radiobuttons">
                     <td class="radiobutton">
@@ -204,13 +213,36 @@
                         "dataSrc": "data"
                         });
                     });
+
+
             </script>
 
             <input type="submit" id="go_button" name="Get Combos" value="GO!" />
 {#            <button id="reset_button"><a href="{% url "menu" menu_id %}">Reset</a></button>#}
         </div>
     </form>
+    <script>
+    $('#find_combos_form').on('submit', function(e){
+                var form = this;
 
+                // Iterate over all checkboxes in the table
+                table.$('input[type="checkbox"]').each(function(){
+                   // If checkbox doesn't exist in DOM
+                   if(!$.contains(document, this)){
+                      // If checkbox is checked
+                      if(this.checked){
+                         // Create a hidden element
+                         $(form).append(
+                            $('<input>')
+                               .attr('type', 'hidden')
+                               .attr('name', this.name)
+                               .val(this.value)
+                         );
+                      }
+                   }
+                });
+             });
+    </script>
     {% for message in messages %}
         <div class="alert alert-success">
             <a class="close" href="#" data-dismiss="alert">×</a>

@@ -1,9 +1,40 @@
 {% load static %}
+{% load number_filters %}
 
 {% block content %}
 
-    {% for item in combo %}
-        <p>{{ item.name }}</p>
-    {% endfor %}
+    <h1>Order Overview</h1>
 
+    <table width="100%">
+        <tr>
+            <td>Item</td>
+            <td>Price</td>
+            <td>Calories</td>
+            <td>Carbohydrates</td>
+            <td>Protein</td>
+            <td>Fat</td>
+        </tr>
+
+        {% for item in combo %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price | currency }}</td>
+                <td>{{ item.calories }}</td>
+                <td>{{ item.carbs }}</td>
+                <td>{{ item.protein }}</td>
+                <td>{{ item.fat }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <td>Subtotal</td>
+            <td>{{ subtotal | currency }}</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>{{ total | currency }}</td>
+        </tr>
+    </table>
 {% endblock %}

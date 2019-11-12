@@ -14,6 +14,8 @@ IMG_DIR = os.path.join(STATIC_ROOT, "img")
 current_restaurant = restaurant_objects.Restaurant()
 current_combos = []
 
+sales_tax = 0.075
+
 
 def index(request):
     return redirect('home')
@@ -35,6 +37,7 @@ def restaurants_page(request):
 def menu(request, menu_id, restaurant_name):
     global current_restaurant
     global current_combos
+    global sales_tax
 
     # todo: convert to draw from database
     menu_csvfile = menu_id.split('.')[0]
@@ -53,6 +56,8 @@ def menu(request, menu_id, restaurant_name):
 
         print(params)
 
+        sales_tax = float(params["sales_tax"]) / 100
+
         for item_id in item_ids:
             if item_id is "":
                 continue
@@ -65,7 +70,7 @@ def menu(request, menu_id, restaurant_name):
         algorithm = params["algorithm_selection"]
 
         if params["price"] != '':
-            price = float(params["price"])
+            price = float(params["price"]) / (1 + sales_tax)
 
         if params["nutrient_selection"] != '':
             nutrient = params["nutrient_selection"]
@@ -150,9 +155,13 @@ def menu(request, menu_id, restaurant_name):
 
 
 def order_page(request, combo_id):
+    global sales_tax
 
-    print(len(current_combos))
+    combo = current_combos[combo_id]
 
-    combo = current_combos[combo_id].to_dictionary_array()
+    compressed_combo = restaurant_objects.compress_combos([combo])[0]
 
-    return render(request, "order.html", {"combo": combo})
+    subtotal = compressed_combo["price"]
+    total = subtotal + subtotal * sales_tax
+
+    return render(request, "order.html", {"combo": combo.to_dictionary_array(), "subtotal": subtotal, "total": total})
