@@ -62,10 +62,12 @@ def get_combos_and_filter(items, nutrient, nutrient_value, filter, pricepoint):
 
     a = len(items) - 1
 
+    if a <= 0:
+        return []
+
     cost = items[a]["price"]
     for i in range(1, max_items_per_combo):
         cost += items[a - i]["price"]
-        print(cost)
         while cost > pricepoint and a - i > 0:
             cost -= items[a]["price"]
             a -= 1
