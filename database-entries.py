@@ -8,9 +8,20 @@ def create_table():
 
 def data_entry():
     c.execute("INSERT INTO restaurants VALUES ('Panda Express', 'Menu', 01)")
-    conn.commit()
-    c.close()
-    conn.close()
+   # conn.commit()
 
-create_table()
-data_entry()
+
+def read_from_db():
+    c.execute('SELECT * FROM JambaJuice')
+    #data = c.fetchall()
+    #print(data)
+    for row in c.fetchall():
+        print(row)
+
+
+read_from_db()
+c.close()
+conn.close()
+
+#create_table()
+#data_entry()

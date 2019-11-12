@@ -14,10 +14,18 @@ def read_from_db(var):
 		item["carbs"] = column[3]
 		item["protein"] = column[4]
 		item["fat"] = column[5]
+		item["egg"] = column[6]
+		item["milk"] = column[7]
+		item["peanut"] = column[8]
+		item["shellfish"] = column[9]
+		item["soy"] = column[10]
+		item["treenuts"] = column[11]
+		item["wheat"] = column[12]
 		menu.append(item)
 		id+=1
 	c.close()
 	conn.close()
-
 	return menu
 
+
+menu = read_from_db("JambaJuice")
