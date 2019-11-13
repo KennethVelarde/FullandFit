@@ -131,5 +131,3 @@ SESSION_ENGINE = "django.contrib.sessions.backends.file"
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 # X_FRAME_OPTIONS = "DENY"
-
-
