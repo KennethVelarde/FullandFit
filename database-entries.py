@@ -4,12 +4,14 @@ conn = sqlite3.connect('db.sqlite3')
 c = conn.cursor()
 
 def create_table():
-    c.execute('CREATE TABLE IF NOT EXISTS restaurants(id REAL, name TEXT, picture TEXT)')
+    c.execute('CREATE TABLE IF NOT EXISTS restaurants(id INTEGER, name TEXT, picture TEXT)')
 
 def data_entry():
-    c.execute("INSERT INTO restaurants VALUES ('03', 'Taco Bell', '/FullandFit/FullandFitApp/static/img/thumbnails/TacoBell.jpeg')")
-    c.execute("INSERT INTO restaurants VALUES ('04', 'Round Table', '/FullandFit/FullandFitApp/static/img/thumbnails/RoundTable.png')")
-    c.execute("INSERT INTO restaurants VALUES ('05', 'Jamba Juice', '/FullandFit/FullandFitApp/static/img/thumbnails/jambajuice.png')")
+    c.execute("INSERT INTO restaurants VALUES ('1', 'Carls Jr.', '/FullandFit/FullandFitApp/static/img/thumbnails/CarlsJr.csv')")
+    c.execute("INSERT INTO restaurants VALUES ('2', 'The Den', '/FullandFit/FullandFitApp/static/img/thumbnails/TheDen.csv')")
+    c.execute("INSERT INTO restaurants VALUES ('3', 'Taco Bell', '/FullandFit/FullandFitApp/static/img/thumbnails/TacoBell.jpeg')")
+    c.execute("INSERT INTO restaurants VALUES ('4', 'Round Table', '/FullandFit/FullandFitApp/static/img/thumbnails/RoundTable.png')")
+    c.execute("INSERT INTO restaurants VALUES ('5', 'Jamba Juice', '/FullandFit/FullandFitApp/static/img/thumbnails/jambajuice.png')")
     conn.commit()
 
 
