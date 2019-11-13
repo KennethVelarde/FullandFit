@@ -12,7 +12,7 @@ def read_from_db(var):
 	restaurant.append(res_list[1])
 	restaurant.append(res_list[2])
 	  
-	id_string = str(int(id))
+	id_string = str(id)
 	c.execute('SELECT * FROM FullMenu WHERE id = ' + id_string) 
 	for row in c.fetchall():
 		item = {}
