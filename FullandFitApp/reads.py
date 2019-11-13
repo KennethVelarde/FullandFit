@@ -3,29 +3,38 @@ import sqlite3
 def read_from_db(var):
 	conn = sqlite3.connect('db.sqlite3')
 	c = conn.cursor()
+	restaurant = []
 	menu = []
-	c.execute('SELECT * FROM ' + var)
-	for column in c.fetchall():
+	c.execute('SELECT * FROM restaurants WHERE rowid = ' + var)
+	res_list = c.fetchall()[0] 
+	id  = res_list[0]
+	restaurant.append(id) 
+	restaurant.append(res_list[1])
+	restaurant.append(res_list[2])
+	  
+	id_string = str(id)
+	c.execute('SELECT * FROM FullMenu WHERE id = ' + id_string) 
+	for row in c.fetchall():
 		item = {}
-		id = 0
-		item["name"] = column[0]
-		item["price"] = column[1]
-		item["calories"] = column[2]
-		item["carbs"] = column[3]
-		item["protein"] = column[4]
-		item["fat"] = column[5]
-		item["egg"] = column[6]
-		item["milk"] = column[7]
-		item["peanut"] = column[8]
-		item["shellfish"] = column[9]
-		item["soy"] = column[10]
-		item["treenuts"] = column[11]
-		item["wheat"] = column[12]
+		item_id = 0
+		item["id"] = item_id
+		item["name"] = row[0]
+		item["price"] = row[2]
+		item["calories"] = row[3]
+		item["carbs"] = row[4]
+		item["protein"] = row[5]
+		item["fat"] = row[6]
+		item["egg"] = row[7]
+		item["milk"] = row[8]
+		item["peanut"] = row[9]
+		item["shellfish"] = row[10]
+		item["soy"] = row[11]
+		item["treenuts"] = row[12]
+		item["wheat"] = row[13]
 		menu.append(item)
-		id+=1
+		item_id+=1
+	restaurant.append(menu)
 	c.close()
 	conn.close()
-	return menu
+	return restaurant
 
-
-menu = read_from_db("JambaJuice")

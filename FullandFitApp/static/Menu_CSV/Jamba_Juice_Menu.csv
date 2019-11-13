@@ -1,64 +1,64 @@
-Item, price  ,calories,carbs,protein,fat,egg,milk,peanuts,shellfish,soy,treenuts,wheat
-Aloha Pineapple Small,5.19,290,67,5,1.5,0,1,0,0,0,0,0
-Aloha Pineapple Medium,6.09,400,89,7,2,0,1,0,0,0,0,0
-Aloha Pineapple Large,6.79,510,115,8,2,0,1,0,0,0,0,0
-Caribbean Passion Small,5.19,260,63,2,1,0,1,0,0,0,0,0
-Caribbean Passion Medium,6.09,340,82,2,1.5,0,1,0,0,0,0,0
-Caribbean Passion Large,6.79,420,102,3,2,0,1,0,0,0,0,0
-Mango-a-go-go Small,5.19,300,73,1,1,0,1,0,0,0,0,0
-Mango-a-go-go Medium,6.09,400,97,2,1.5,0,1,0,0,0,0,0
-Mango-a-go-go Large,6.79,510,123,2,2,0,1,0,0,0,0,0
-Peach Perfection Small,5.49,210,51,2,0,0,0,0,0,0,0,0
-Peach Perfection Large,7.09,360,88,3,1,0,0,0,0,0,0,0
-Banana Berry Small,5.19,270,64,3,1,0,0,0,0,0,0,0
-Razzmatazz Small,5.19,270,65,1,1,0,1,0,0,0,0,0
-Razzmatazz Medium,6.09,360,87,1,1.5,0,1,0,0,0,0,0
-Razzmatazz Large,6.79,460,112,2,2,0,1,0,0,0,0,0
-Strawberry Surf Rider Small,5.19,250,60,1,1.5,0,1,0,0,0,0,0
-Strawberry Surf Rider Medium,6.09,340,84,1,2,0,1,0,0,0,0,0
-Strawberry Surf Rider Large,6.79,420,102,1,2,0,1,0,0,0,0,0
-Strawberries Wild Small,5.49,250,60,3,0,0,1,0,0,0,0,0
-Strawberries Wild Medium,6.39,340,81,5,0,0,1,0,0,0,0,0
-Strawberries Wild Large,7.09,430,103,6,0.5,0,1,0,0,0,0,0
-Orange Dream Machine Small,5.49,310,68,5,1.5,0,1,0,0,1,0,0
-Orange Dream Machine Medium,6.39,440,97,7,2,0,1,0,0,1,0,0
-Orange Dream Machine Large,7.09,550,120,9,2.5,0,1,0,0,1,0,0
-Peanut Butter Moo’d Small,5.49,430,75,13,10,0,1,1,0,1,0,0
-Peanut Butter Moo’d Medium,6.39,720,120,22,19,0,1,1,0,1,0,0
-Peanut Butter Moo’d Large,7.09,910,144,29,28,0,1,1,0,1,0,0
-White Gummy Small,5.49,320,74,2,2,0,1,0,0,1,0,0
-White Gummy Medium,6.39,450,105,2,3,0,1,0,0,1,0,0
-White Gummy Large,7.09,590,135,4,4,0,1,0,0,1,0,0
-Matcha Green Tea Blast Small,5.49,270,56,8,0,0,1,0,0,1,0,0
-Matcha Green Tea Blast Medium,6.39,410,87,12,0,0,1,0,0,1,0,0
-Matcha Green Tea Blast Large,7.09,500,105,14,0,0,1,0,0,1,0,0
-Mega Mango Small,5.49,210,50,2,0.5,0,0,0,0,0,0,0
-Mega Mango Medium,6.39,310,74,3,1,0,0,0,0,0,0,0
-Mega Mango Large,7.09,350,85,4,1,0,0,0,0,0,0,0
-Pomegranate Paradise Small,5.49,220,54,2,0.5,0,0,0,0,0,0,0
-Pomegranate Paradise Medium,6.39,320,80,2,0.5,0,0,0,0,0,0,0
-Pomegranate Paradise Large,7.09,380,93,3,1,0,0,0,0,0,0,0
-Vanilla Blue Sky Small,6.09,210,43,2,4.5,0,0,0,0,0,0,0
-Vanilla Blue Sky Medium,6.89,280,61,3,5,0,0,0,0,0,0,0
-Vanilla Blue Sky Large,7.39,360,77,4,7,0,0,0,0,0,0,0
-Apple ‘n Greens Small,5.49,250,58,5,1,0,0,0,0,0,0,0
-Apple ‘n Greens Medium,6.39,320,76,6,1,0,0,0,0,0,0,0
-Apple ‘n Greens Large,7.09,400,96,7,1.5,0,0,0,0,0,0,0
-Greens ‘n Ginger Small,5.49,230,56,4,1,0,0,0,0,0,0,0
-Greens ‘n Ginger Medium,6.39,290,70,4,1,0,0,0,0,0,0,0
-Greens ‘n Ginger Large,7.09,380,91,6,1.5,0,0,0,0,0,0,0
-Amazing Greens Small,6.09,360,57,7,13,0,0,0,0,0,0,0
-Amazing Greens Medium,6.89,430,74,7,13,0,0,0,0,0,0,0
-Amazing Greens Large,7.39,510,92,8,13,0,0,0,0,0,0,0
-Acai Super-antixodant Small,6.09,340,69,6,4,0,1,0,0,1,0,0
-Acai Super-antixodant Medium,6.89,440,89,8,6,0,1,0,0,1,0,0
-Acai Super-antixodant Large,7.39,540,110,10,7,0,1,0,0,1,0,0
-PB & Banana Protein Small,6.09,540,51,36,22,0,1,1,0,1,0,0
-PB & Banana Protein Medium,6.89,630,70,38,23,0,1,1,0,1,0,0
-PB & Banana Protein Large,7.39,810,89,42,33,0,1,1,0,1,0,0
-Orange C-Booster Small,6.09,240,56,3,1,0,1,0,0,1,0,0
-Orange C-Booster Medium,6.89,330,76,3,2,0,1,0,0,1,0,0
-Orange C-Booster Large,7.39,410,95,4,2,0,1,0,0,1,0,0
-Island Pitaya Bowl,7.99,480,102,7,8,0,0,0,0,0,0,0
-Acai Primo Bowl,7.99,510,101,8,10,0,0,0,0,0,0,0
-Chunky Strawberry Bowl,7.99,580,94,21,16,0,1,1,0,1,0,0
+Item,id, price  ,calories,carbs,protein,fat,egg,milk,peanuts,shellfish,soy,treenuts,wheat
+Aloha Pineapple Small,5,5.19,290,67,5,1.5,0,1,0,0,0,0,0
+Aloha Pineapple Medium,5,6.09,400,89,7,2,0,1,0,0,0,0,0
+Aloha Pineapple Large,5,6.79,510,115,8,2,0,1,0,0,0,0,0
+Caribbean Passion Small,5,5.19,260,63,2,1,0,1,0,0,0,0,0
+Caribbean Passion Medium,5,6.09,340,82,2,1.5,0,1,0,0,0,0,0
+Caribbean Passion Large,5,6.79,420,102,3,2,0,1,0,0,0,0,0
+Mango-a-go-go Small,5,5.19,300,73,1,1,0,1,0,0,0,0,0
+Mango-a-go-go Medium,5,6.09,400,97,2,1.5,0,1,0,0,0,0,0
+Mango-a-go-go Large,5,6.79,510,123,2,2,0,1,0,0,0,0,0
+Peach Perfection Small,5,5.49,210,51,2,0,0,0,0,0,0,0,0
+Peach Perfection Large,5,7.09,360,88,3,1,0,0,0,0,0,0,0
+Banana Berry Small,5,5.19,270,64,3,1,0,0,0,0,0,0,0
+Razzmatazz Small,5,5.19,270,65,1,1,0,1,0,0,0,0,0
+Razzmatazz Medium,5,6.09,360,87,1,1.5,0,1,0,0,0,0,0
+Razzmatazz Large,5,6.79,460,112,2,2,0,1,0,0,0,0,0
+Strawberry Surf Rider Small,5,5.19,250,60,1,1.5,0,1,0,0,0,0,0
+Strawberry Surf Rider Medium,5,6.09,340,84,1,2,0,1,0,0,0,0,0
+Strawberry Surf Rider Large,5,6.79,420,102,1,2,0,1,0,0,0,0,0
+Strawberries Wild Small,5,5.49,250,60,3,0,0,1,0,0,0,0,0
+Strawberries Wild Medium,5,6.39,340,81,5,0,0,1,0,0,0,0,0
+Strawberries Wild Large,5,7.09,430,103,6,0.5,0,1,0,0,0,0,0
+Orange Dream Machine Small,5,5.49,310,68,5,1.5,0,1,0,0,1,0,0
+Orange Dream Machine Medium,5,6.39,440,97,7,2,0,1,0,0,1,0,0
+Orange Dream Machine Large,5,7.09,550,120,9,2.5,0,1,0,0,1,0,0
+Peanut Butter Mooï¿½d Small,5,5.49,430,75,13,10,0,1,1,0,1,0,0
+Peanut Butter Mooï¿½d Medium,5,6.39,720,120,22,19,0,1,1,0,1,0,0
+Peanut Butter Mooï¿½d Large,5,7.09,910,144,29,28,0,1,1,0,1,0,0
+White Gummy Small,5,5.49,320,74,2,2,0,1,0,0,1,0,0
+White Gummy Medium,5,6.39,450,105,2,3,0,1,0,0,1,0,0
+White Gummy Large,5,7.09,590,135,4,4,0,1,0,0,1,0,0
+Matcha Green Tea Blast Small,5,5.49,270,56,8,0,0,1,0,0,1,0,0
+Matcha Green Tea Blast Medium,5,6.39,410,87,12,0,0,1,0,0,1,0,0
+Matcha Green Tea Blast Large,5,7.09,500,105,14,0,0,1,0,0,1,0,0
+Mega Mango Small,5,5.49,210,50,2,0.5,0,0,0,0,0,0,0
+Mega Mango Medium,5,6.39,310,74,3,1,0,0,0,0,0,0,0
+Mega Mango Large,5,7.09,350,85,4,1,0,0,0,0,0,0,0
+Pomegranate Paradise Small,5,5.49,220,54,2,0.5,0,0,0,0,0,0,0
+Pomegranate Paradise Medium,5,6.39,320,80,2,0.5,0,0,0,0,0,0,0
+Pomegranate Paradise Large,5,7.09,380,93,3,1,0,0,0,0,0,0,0
+Vanilla Blue Sky Small,5,6.09,210,43,2,4.5,0,0,0,0,0,0,0
+Vanilla Blue Sky Medium,5,6.89,280,61,3,5,0,0,0,0,0,0,0
+Vanilla Blue Sky Large,5,7.39,360,77,4,7,0,0,0,0,0,0,0
+Apple ï¿½n Greens Small,5,5.49,250,58,5,1,0,0,0,0,0,0,0
+Apple ï¿½n Greens Medium,5,6.39,320,76,6,1,0,0,0,0,0,0,0
+Apple ï¿½n Greens Large,5,7.09,400,96,7,1.5,0,0,0,0,0,0,0
+Greens ï¿½n Ginger Small,5,5.49,230,56,4,1,0,0,0,0,0,0,0
+Greens ï¿½n Ginger Medium,5,6.39,290,70,4,1,0,0,0,0,0,0,0
+Greens ï¿½n Ginger Large,5,7.09,380,91,6,1.5,0,0,0,0,0,0,0
+Amazing Greens Small,5,6.09,360,57,7,13,0,0,0,0,0,0,0
+Amazing Greens Medium,5,6.89,430,74,7,13,0,0,0,0,0,0,0
+Amazing Greens Large,5,7.39,510,92,8,13,0,0,0,0,0,0,0
+Acai Super-antixodant Small,5,6.09,340,69,6,4,0,1,0,0,1,0,0
+Acai Super-antixodant Medium,5,6.89,440,89,8,6,0,1,0,0,1,0,0
+Acai Super-antixodant Large,5,7.39,540,110,10,7,0,1,0,0,1,0,0
+PB & Banana Protein Small,5,6.09,540,51,36,22,0,1,1,0,1,0,0
+PB & Banana Protein Medium,5,6.89,630,70,38,23,0,1,1,0,1,0,0
+PB & Banana Protein Large,5,7.39,810,89,42,33,0,1,1,0,1,0,0
+Orange C-Booster Small,5,6.09,240,56,3,1,0,1,0,0,1,0,0
+Orange C-Booster Medium,5,6.89,330,76,3,2,0,1,0,0,1,0,0
+Orange C-Booster Large,5,7.39,410,95,4,2,0,1,0,0,1,0,0
+Island Pitaya Bowl,5,7.99,480,102,7,8,0,0,0,0,0,0,0
+Acai Primo Bowl,5,7.99,510,101,8,10,0,0,0,0,0,0,0
+Chunky Strawberry Bowl,5,7.99,580,94,21,16,0,1,1,0,1,0,0
