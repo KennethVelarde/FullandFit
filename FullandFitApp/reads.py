@@ -10,35 +10,31 @@ def read_from_db(var):
 	id  = res_list[0]
 	restaurant.append(id) 
 	restaurant.append(res_list[1])
-	restaurant.append(res_list[2])  
-	id_string = str(id)
-	c.execute('SELECT * FROM menu WHERE rowid = ' + id_string) 
+	restaurant.append(res_list[2])
+	  
+	id_string = str(int(id))
+	c.execute('SELECT * FROM FullMenu WHERE id = ' + id_string) 
 	for row in c.fetchall():
-		print(row) 
-		#id = row[0]
-		
-		#item = {}
-		#id = 0
-		#item["name"] = column[0]
-		#item["price"] = column[1]
-		#item["calories"] = column[2]
-		#item["carbs"] = column[3]
-		#item["protein"] = column[4]
-		#item["fat"] = column[5]
-		#item["egg"] = column[6]
-		#item["milk"] = column[7]
-		#item["peanut"] = column[8]
-		#item["shellfish"] = column[9]
-		#item["soy"] = column[10]
-		#item["treenuts"] = column[11]
-		#item["wheat"] = column[12]
-		#menu.append(item)
-		#print()
-		#id+=1
+		item = {}
+		item_id = 0
+		item["id"] = item_id
+		item["name"] = row[0]
+		item["price"] = row[2]
+		item["calories"] = row[3]
+		item["carbs"] = row[4]
+		item["protein"] = row[5]
+		item["fat"] = row[6]
+		item["egg"] = row[7]
+		item["milk"] = row[8]
+		item["peanut"] = row[9]
+		item["shellfish"] = row[10]
+		item["soy"] = row[11]
+		item["treenuts"] = row[12]
+		item["wheat"] = row[13]
+		menu.append(item)
+		item_id+=1
+	restaurant.append(menu)
 	c.close()
 	conn.close()
-	return menu
+	return restaurant
 
-
-menu = read_from_db("1.0")
-#print(menu[2])
