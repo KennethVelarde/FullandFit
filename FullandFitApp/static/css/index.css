@@ -5,7 +5,7 @@ html, body{
     padding:0;
     height: 100%;
     display: grid;
-    background-color:#00539C;
+    background-color:#e9ebee;
 }
 #start_button a{
     text-decoration: none;
@@ -27,12 +27,11 @@ html, body{
 .main_title{
 margin: auto;
 font-size: 100px;
-color:#feda6a;
+/*color:#feda6a;*/
+    color:#1F70C1;
 font-family: 'Poppins', sans-serif;
-/*font-family: 'Julius Sans One', sans-serif;*/
-/*font-family:'Roboto', sans-serif;*/
 font-weight: 300;
-margin-left:-70px; 
+margin-left:-55px; 
 margin-bottom: 100px;
 }
 

@@ -45,7 +45,8 @@
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: grey; /* Black*/
+/*  background-color: grey;  Black*/
+        background-color:#e9ebee;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -62,8 +63,10 @@
 }
 
 /* When you mouse over the navigation links, change their color */
+
 .sidepanel a:hover {
-  color: #f1f1f1;
+/*  color: #f1f1f1;*/
+    font-size:40px;
 }
 
 /* Position and style the close button (top right corner) */
@@ -131,6 +134,7 @@
   cursor: pointer;
   z-index: 90;
 }
+
 
 .radiobutton label:hover {
   background: #DDD;

@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:500&display=swap');
 html,body {
     height: 90em;
-    background-color:#00539C;
-    color:#131313;
-    font-family:'Roboto', sans-serif;
-}
+    background-color:#e9ebee;
+    color:#1F70C1;
+    font-family: 'Zilla Slab', serif;
 
-/*
-#restaurant_title{
-    color:#feda6a;
-    font-family:'Roboto', sans-serif;
-    text-align: center;
 }
-*/
