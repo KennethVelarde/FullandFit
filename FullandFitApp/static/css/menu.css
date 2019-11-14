@@ -8,6 +8,7 @@
 }
 
 #item_selection_table{
+/*    margin-top: 15px;*/
     width: 100%;
     background-color: whitesmoke;
     overflow: scroll;
@@ -20,6 +21,7 @@
 
 #go_button{
     background-color: lawngreen;
+    margin-top: 15px; /*added spacing above go button and tables*/
 }
 
 #reset_button{
@@ -96,7 +98,7 @@
 
 .radiobutton {
   list-style-type: none;
-  margin: 25px 0 0 0;
+  margin: 25px 0 0 25px;
   padding: 0;
 }
 
