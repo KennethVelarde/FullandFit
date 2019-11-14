@@ -143,17 +143,36 @@ def menu(request, menu_id, restaurant_name):
             else:
                 messages.error(request, "Dollar value must be between $0.01 and $19.99")
                 messages.error(request, "Nutrient value must be between 1 and 2000")
+
+        request.session["current_combos"] = restaurant_objects.combos_to_array_of_dictionaries(current_combos)
+        request.session["sales_tax"] = sales_tax
+        ctx = {"restaurant_name": current_restaurant.name, "menu": items}
+
+        return redirect("combos")
     else:
         items = current_restaurant.menu.to_dictionary_array()
 
     # make session variables persistent across pages
     request.session["current_restaurant"] = current_restaurant.to_dict()
-    request.session["current_combos"] = restaurant_objects.combos_to_array_of_dictionaries(current_combos)
-    request.session["sales_tax"] = sales_tax
 
     ctx = {"restaurant_name": current_restaurant.name, "menu": items}
 
     return render(request, "menu.html", context=ctx)
+
+
+def combos_page(request):
+
+    current_combos = request.session["current_combos"]
+
+    combos = [restaurant_objects.get_combo_from_item_array(item_array) for item_array in current_combos]
+
+    compressed_combos = restaurant_objects.compress_combos(combos)
+
+    print(compressed_combos)
+
+    ctx = {"combos": compressed_combos}
+
+    return render(request, "combos.html", context=ctx)
 
 
 def order_page(request, combo_id):

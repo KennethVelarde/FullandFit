@@ -96,6 +96,23 @@ def get_combo_from_item_array(item_array):
 
     return Combo(menu_items)
 
+def get_restaurant_from_dictionary(dictionary):
+    new_restaurant = Restaurant()
+    new_restaurant.name = dictionary["name"]
+
+    dictionary_menu = dictionary["menu"]
+    menu_items = dict()
+
+    for dictionary_item in dictionary_menu:
+        menu_item = MenuItem()
+        menu_item.set_members_from_dictionary(dictionary_item)
+        menu_items[dictionary_item["id"]] = menu_item
+
+    menu = Menu()
+
+    new_restaurant.menu = menu
+
+
 
 def combos_to_array_of_dictionaries(combos):
     combo_array = []
@@ -196,9 +213,6 @@ def get_combo_from_item_array(item_array):
         menu_items.append(menu_item)
 
     return Combo(menu_items)
-
-
-
 
 
 class MenuItem:

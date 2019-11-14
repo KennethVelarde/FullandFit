@@ -21,7 +21,12 @@
 
 #go_button{
     background-color: lawngreen;
+
     margin-top: 15px; /*added spacing above go button and tables*/
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
 }
 
 #reset_button{

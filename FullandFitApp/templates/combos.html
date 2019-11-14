@@ -3,103 +3,100 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ restaurant.name }}</h1>
+    <h1>{{ restaurant.name }} Combos</h1>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
     <script src="{% static "js/menu.js" %}"></script>
 
-    <button id="open_btn" onclick="open_nutrition()">&#9775; Set Nutritional Parameters</button>
 
-    <form method="post" >
-        {% csrf_token %}
-        <div id="nutrition_parameters" class="sidepanel">
-            <div id="algorithm_selection">
-                <table>
-                    <tr>
-                        <td class="radiobutton">
-                            <input type="radio" id="max" name="algorithm_selection" value="max"/>
-                            <label for="max">Maximize</label>
-                        </td>
-                        <td class="radiobutton">
-                            <input type="radio" id="min" name="algorithm_selection" value="min"/>
-                            <label for="min">Minimize</label>
-                        </tdi>
-                        <td class="radiobutton">
-                            <input type="radio" id="target" name="algorithm_selection" value="target"/>
-                            <label for="target">Target</label>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <a href="javascript:void(0)" class="close_btn" onclick="close_nutrition()">&times;</a>
-
-            <table id="macronutrient_parameters_table">
-                <tr>
-                    <td>Price $</td>
-                    <td><input type="number" name="price" step="0.01" placeholder="Enter amount in USD" ></td>
-                </tr>
-                <tr class="radiobuttons">
-                    <td class="radiobutton">
-                        <input type="radio" id="caloriesbtn" name="nutrient_selection" value="calories"/>
-                        <label for="caloriesbtn">Calories</label>
-                    </td>
-                    <td><input type="number" name="calories" value="0"></td>
-                    <td><p>kCal</p></td>
-                </tr>
-                <tr>
-                    <td class="radiobutton">
-                        <input type="radio" id="carbsbtn" name="nutrient_selection" value="carbs"/>
-                        <label for="carbsbtn">Carbs</label>
-                    </td>
-                    <td><input type="number" name="carbs" value="0"></td>
-                    <td><p>grams</p></td>
-                </tr>
-                <tr>
-                    <td class="radiobutton">
-                        <input type="radio" id="proteinbtn" name="nutrient_selection" value="protein"/>
-                        <label for="proteinbtn">Protein</label>
-                    </td>
-                    <td><input type="number" name="protein" value="0"></td>
-                    <td><p>grams</p></td>
-                </tr>
-                <tr>
-                    <td class="radiobutton">
-                        <input type="radio" id="fatbtn" name="nutrient_selection" value="fat"/>
-                        <label for="fatbtn">Fat</label>
-                    </td>
-                    <td><input type="number" name="fat" value="0"></td>
-                    <td><p>grams</p></td>
-                </tr>
-            </table>
-        </div>
-
-        <div id="item_selection">
-            <table id="item_selection_table">
+    <div id="combo_selection">
+        <table id="combo_selection_table" class="display">
+            <thead>
                 <tr>
                     {#          todo: create select deselect all button#}
-                    <td></td>
                     <td>Item</td>
+                    <td>Allergens</td>
                     <td>Price</td>
                     <td>Calories</td>
                     <td>Carbs</td>
                     <td>Protein</td>
                     <td>Fat</td>
                 </tr>
-                {% for item in restaurant.menu %}
+            </thead>
+            <tbody>
+                {% for combo in combos %}
                 <tr>
-                    <td><input type="checkbox" name="items" value="{{ item.id }}" checked></td>
-                    {# todo: open separate page that displays order statistics #}
-                    <td><a target="_blank" href="{% url "order" %}">{{ item.name }}</a></td>
-                    <td>{{ item.price | currency }}</td>
-                    <td>{{ item.calories }}</td>
-                    <td>{{ item.carbs }}</td>
-                    <td>{{ item.protein }}</td>
-                    <td>{{ item.fat }}</td>
+                    <td><a target="_blank" href="{% url "order" combo.id %}">{{ combo.name }}</a></td>
+                    <td>
+                        {% if combo.has_egg %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/egg.svg' %}" alt="This item has egg">
+                        {% endif %}
+                        {% if combo.has_milk %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/milk.svg' %}" alt="This item has egg">
+                        {% endif %}
+                        {% if combo.has_peanuts %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/peanuts.svg' %}" alt="This item has egg">
+                        {% endif %}
+                        {% if combo.has_shellfish %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/shellfish.svg' %}" alt="This item has egg">
+                        {% endif %}
+                        {% if combo.has_soy %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/soy.svg' %}" alt="This item has egg">
+                        {% endif %}
+                        {% if combo.has_treenuts %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/treenuts.svg' %}" alt="This item has egg">
+                        {% endif %}
+                        {% if combo.has_wheat %}
+                            <img class="allergen_icon" src="{% static 'img/allergen_icons/wheat.svg' %}" alt="This item has egg">
+                        {% endif %}
+                    </td>
+                    <td>{{ combo.price | currency }}</td>
+                    <td>{{ combo.calories }}</td>
+                    <td>{{ combo.carbs }}</td>
+                    <td>{{ combo.protein }}</td>
+                    <td>{{ combo.fat }}</td>
                  </tr>
-             {% endfor %}
-            </table>
-            <input type="submit" id="go_button" name="Go" value="GO!" />
-{#            <button id="reset_button"><a href="{% url "menu" menu_id %}">Reset</a></button>#}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <script>
+            $(document).ready(function() {
+                $('#combo_selection_table').DataTable({
+                    "order": [[3, "desc"]],
+                    "pageLength": 10,
+                    "dataSrc": "data"
+                    });
+                });
+        </script>
+    </div>
+    <script>
+    $('#find_combos_form').on('submit', function(e){
+                var form = this;
+
+                // Iterate over all checkboxes in the table
+                table.$('input[type="checkbox"]').each(function(){
+                   // If checkbox doesn't exist in DOM
+                   if(!$.contains(document, this)){
+                      // If checkbox is checked
+                      if(this.checked){
+                         // Create a hidden element
+                         $(form).append(
+                            $('<input>')
+                               .attr('type', 'hidden')
+                               .attr('name', this.name)
+                               .val(this.value)
+                         );
+                      }
+                   }
+                });
+             });
+    </script>
+    {% for message in messages %}
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
         </div>
-    </form>
+    {% endfor %}
+
 {% endblock %}

@@ -3,14 +3,16 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ restaurant.name }}</h1>
+    <h1>{{ restaurant.name }} Menu</h1>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
     <script src="{% static "js/menu.js" %}"></script>
 
-    <button id="open_btn" onclick="open_nutrition()">&#9775; Set Nutritional Parameters</button>
+    <button id="open_btn" onclick="open_nutrition()">Set Nutritional Parameters >></button>
 
     <form method="post" id="find_combos_form" >
+        <input type="submit" id="go_button" name="Get Combos" value="Find Combos!"/>
+
         {% csrf_token %}
         <div id="nutrition_parameters" class="sidepanel">
             <div id="algorithm_selection">
@@ -172,7 +174,7 @@
                     <tr>
                         <td><input type="checkbox" name="items" value="{{ item.id }}" checked></td>
                         {# todo: open separate page that displays order statistics #}
-                        <td><a target="_blank" href="{% url "order" item.id %}">{{ item.name }}</a></td>
+                        <td>{{ item.name }}</td>
                         <td>
                             {% if item.has_egg %}
                                 <img class="allergen_icon" src="{% static 'img/allergen_icons/egg.svg' %}" alt="This item has egg">
@@ -214,12 +216,7 @@
                         "dataSrc": "data"
                         });
                     });
-
-
             </script>
-
-            <input type="submit" id="go_button" name="Get Combos" value="GO!" />
-{#            <button id="reset_button"><a href="{% url "menu" menu_id %}">Reset</a></button>#}
         </div>
     </form>
     <script>
