@@ -21,8 +21,9 @@
 
 #go_button{
     background-color: lawngreen;
-
-    margin-top: 15px; /*added spacing above go button and tables*/
+    margin-top: 20px; /*added spacing above go buttons*/
+    margin-bottom: 20px;
+    
     font-size: 20px;
     cursor: pointer;
     padding: 10px 15px;
