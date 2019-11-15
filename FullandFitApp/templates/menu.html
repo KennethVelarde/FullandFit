@@ -3,15 +3,17 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ restaurant.name }} Menu</h1>
+    <h1 class = "animated slideInDown">{{ restaurant.name }} Menu</h1>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
+
     <script src="{% static "js/menu.js" %}"></script>
 
-    <button id="open_btn" onclick="open_nutrition()">Set Nutritional Parameters >></button>
+    <button class="open_btn animated fadeInLeftBig" onclick="open_nutrition()">Set Nutritional Parameters >></button>
 
     <form method="post" id="find_combos_form" >
-        <input type="submit" id="go_button" name="Get Combos" value="Find Combos!"/>
+        <input type="submit" class="go_button animated fadeInRightBig" name="Get Combos" value="Find Combos!"/>
 
         {% csrf_token %}
         <div id="nutrition_parameters" class="sidepanel">
@@ -27,7 +29,6 @@
 
 
                 <h1>Macronutrients</h1>
-
                 <table>
                     <tr>
                         <td class="radiobutton">
@@ -151,10 +152,10 @@
                 </tr>
                 
             </table>
-            <td><input type="submit" id="go_button" name="Get Combos" value="GO!" /></td>
+            <td><input type="submit" class="go_button" name="Get Combos" value="GO!" /></td>
         </div>
 
-        <div id="item_selection">
+        <div class="item_selection animated fadeInLeftBig">
             <table id="item_selection_table" class="display">
                 <thead>
                     <tr>

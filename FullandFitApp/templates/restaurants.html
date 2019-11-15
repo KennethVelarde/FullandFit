@@ -3,14 +3,14 @@
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static "css/restaurants.css" %}">
-
-    <h1 id = "restaurant_title">Select a restaurant:</h1>
+    <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
+    <h1 class="restaurant_title animated fadeInDownBig">Select a restaurant:</h1>
     <div id="resaurant_selection">
 {#        <table id="restaurant_list ">#}
             {% for t in thumbnails %}
 {#                <tr>#}
 {#                    <td>#}
-                        <div class="tile animated slideInLeft">
+                        <div class="tile animated zoomInUp">
                             <a href="{% url 'menu' menu_id=t restaurant_name=t %}"><img class="thumbnail" src="../static/img/thumbnails/{{ t }}" alt="{{ t }}"></a>
                         </div>
 {#                    </td>#}

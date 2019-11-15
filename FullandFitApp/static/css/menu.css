@@ -27,7 +27,7 @@ h1{
     background-color: grey;
 }
 
-#go_button{
+.go_button{
     background-color: lawngreen;
     margin-top: 20px; /*added spacing above go buttons*/
     margin-bottom: 20px;
@@ -106,12 +106,13 @@ h1{
 }
 
 /* Style the button that is used to open the sidepanel */
-#open_btn {
+.open_btn {
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
   color: white;
   padding: 10px 15px;
+  margin-top: 15px;
   border: none;
 }
 
