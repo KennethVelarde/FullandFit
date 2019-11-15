@@ -6,7 +6,7 @@ html,body{
 #restaurant_title{
     font-size: 8em;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .tile {
@@ -16,9 +16,9 @@ html,body{
 .thumbnail {
     
   text-align: center;
-  margin: 100px 40px 0 0;
-  width: 250px;
-  height: 250px;
+  margin: 50px 40px 0 0;
+  width: 200px;
+  height: 200px;
     
     border: solid #1F70C1 10px;
     

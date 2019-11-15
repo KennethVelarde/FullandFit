@@ -1,3 +1,11 @@
+h1{
+    margin:0;
+}
+#algorithm_selection{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
 #item_selection{
   height: 80%;
 }
@@ -54,10 +62,11 @@
   top: 0;
   left: 0;
 /*  background-color: grey;  Black*/
-        background-color:#e9ebee;
+  background-color:#e9ebee;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  padding-top:15px;
 }
 
 /* The sidepanel links */
@@ -78,12 +87,22 @@
 }
 
 /* Position and style the close button (top right corner) */
-.sidepanel .close_btn {
+.sidepanel .close_btn{
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.close_btn{
+/*
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50psx;
+*/
 }
 
 /* Style the button that is used to open the sidepanel */
