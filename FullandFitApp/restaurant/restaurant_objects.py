@@ -113,6 +113,22 @@ def get_restaurant_from_dictionary(dictionary):
     new_restaurant.menu = menu
 
 
+def get_menu_from_menu_item_dictionaries(menu_item_dictionaries):
+
+    menu = dict()
+    for i in range(len(menu_item_dictionaries)):
+        dictionary = menu_item_dictionaries[i]
+
+        # only consider menu items that have a price
+        if dictionary["price"] is "":
+            continue
+
+        menu_item = MenuItem()
+        menu_item.set_members_to_csv_row(dictionary)
+        menu[i] = menu_item
+
+    return menu
+
 
 def combos_to_array_of_dictionaries(combos):
     combo_array = []
@@ -259,7 +275,7 @@ class MenuItem:
         self.calories = int(menu_item_dictionary["calories"])
         self.carbs = int(menu_item_dictionary["carbs"])
         self.protein = int(menu_item_dictionary["protein"])
-        self.fat = int(menu_item_dictionary["fat"])
+        self.fat = int(round(float(menu_item_dictionary["fat"])))
 
         if menu_item_dictionary["egg"] is "1":
             self.has_egg = True

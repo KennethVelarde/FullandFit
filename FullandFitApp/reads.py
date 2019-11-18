@@ -18,7 +18,7 @@ def get_menu(var):
 		item["fat"] = row[6]
 		item["egg"] = row[7]
 		item["milk"] = row[8]
-		item["peanut"] = row[9]
+		item["peanuts"] = row[9]
 		item["shellfish"] = row[10]
 		item["soy"] = row[11]
 		item["treenuts"] = row[12]
@@ -32,17 +32,17 @@ def get_menu(var):
 def get_restaurants(): 	
 	conn = sqlite3.connect('db.sqlite3')
 	c = conn.cursor()
-	restaurant = []
 	c.execute('SELECT * FROM restaurants')
+	restaurants = []
 	for row in c.fetchall():
-		item = []
-		item.append(row[0]) 
-		item.append(row[1])
-		item.append(row[2])
-		restaurant.append(item)
+		restaurant = dict()
+		restaurant["menu_id"] = row[0]
+		restaurant["name"] = row[1]
+		restaurant["image_path"] = row[2]
+		restaurants.append(restaurant)
 	c.close()
 	conn.close()
-	return restaurant
+	return restaurants
 
 def read_from_db(var):
 	conn = sqlite3.connect('db.sqlite3')
@@ -70,7 +70,7 @@ def read_from_db(var):
 		item["fat"] = row[6]
 		item["egg"] = row[7]
 		item["milk"] = row[8]
-		item["peanut"] = row[9]
+		item["peanuts"] = row[9]
 		item["shellfish"] = row[10]
 		item["soy"] = row[11]
 		item["treenuts"] = row[12]

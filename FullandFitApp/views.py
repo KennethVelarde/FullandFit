@@ -2,6 +2,7 @@ import os
 from FullandFitApp import nutrition_optimization
 from FullandFitApp.parsing import csv_parse
 from FullandFitApp.restaurant import restaurant_objects
+from FullandFitApp import reads
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -21,10 +22,17 @@ def home(request):
 
 
 def restaurants_page(request):
-    thumbnail_path = os.path.join(IMG_DIR, "thumbnails")
-    thumbnails = os.listdir(thumbnail_path)
+    restaurants_from_db = reads.get_restaurants()
 
-    ctx = {"thumbnails": thumbnails}
+    restaurants = []
+    for dictionary in restaurants_from_db:
+        restaurant = dict()
+        restaurant["thumbnail_filename"] = dictionary["image_path"].split("/")[-1]
+        restaurant["name"] = dictionary["name"]
+        restaurant["menu_id"] = dictionary["menu_id"]
+        restaurants.append(restaurant)
+
+    ctx = {"restaurants": restaurants}
 
     return render(request, "restaurants.html", context=ctx)
 
@@ -36,12 +44,16 @@ def menu(request, menu_id, restaurant_name):
     current_combos = []
     sales_tax = 0
 
-    # todo: convert to draw from database
-    menu_csvfile = menu_id.split('.')[0]
+    menu_item_dictionaries = reads.get_menu(menu_id)
+
+    # # todo: convert to draw from database
+    # menu_csvfile = menu_id.split('.')[0]
 
     # todo: refactor the current restaurant building to another function
     current_restaurant.name = restaurant_name.split('.')[0]
-    menu_items = csv_parse.get_menu_from_csv(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
+    # menu_items = csv_parse.get_menu_from_csv(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
+    # current_restaurant.menu = restaurant_objects.Menu(menu_items)
+    menu_items = restaurant_objects.get_menu_from_menu_item_dictionaries(menu_item_dictionaries)
     current_restaurant.menu = restaurant_objects.Menu(menu_items)
 
     items = []
@@ -146,7 +158,6 @@ def menu(request, menu_id, restaurant_name):
 
         request.session["current_combos"] = restaurant_objects.combos_to_array_of_dictionaries(current_combos)
         request.session["sales_tax"] = sales_tax
-        ctx = {"restaurant_name": current_restaurant.name, "menu": items}
 
         return redirect("combos")
     else:
@@ -163,6 +174,7 @@ def menu(request, menu_id, restaurant_name):
 def combos_page(request):
 
     current_combos = request.session["current_combos"]
+    current_restaurant = request.session["current_restaurant"]
 
     combos = [restaurant_objects.get_combo_from_item_array(item_array) for item_array in current_combos]
 
@@ -170,7 +182,7 @@ def combos_page(request):
 
     print(compressed_combos)
 
-    ctx = {"combos": compressed_combos}
+    ctx = {"combos": compressed_combos, "restaurant_name": current_restaurant["name"]}
 
     return render(request, "combos.html", context=ctx)
 

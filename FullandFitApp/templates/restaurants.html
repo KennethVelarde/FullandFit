@@ -3,15 +3,17 @@
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static "css/restaurants.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
-    <h1 class="restaurant_title animated fadeInDownBig">Select a restaurant:</h1>
+
+    <h1 id = "restaurant_title">Select a restaurant:</h1>
     <div id="resaurant_selection">
 {#        <table id="restaurant_list ">#}
-            {% for t in thumbnails %}
+            {% for restaurant in restaurants %}
 {#                <tr>#}
 {#                    <td>#}
-                        <div class="tile animated zoomInUp">
-                            <a href="{% url 'menu' menu_id=t restaurant_name=t %}"><img class="thumbnail" src="../static/img/thumbnails/{{ t }}" alt="{{ t }}"></a>
+                        <div class="tile animated slideInLeft">
+                            <a href="{% url 'menu' menu_id=restaurant.menu_id restaurant_name=restaurant.name %}">
+                                <img class="thumbnail" src="../static/img/thumbnails/{{ restaurant.thumbnail_filename }}" alt="{{ restaurant.thumbnail_filename }}">
+                            </a>
                         </div>
 {#                    </td>#}
 {#                </tr>#}
