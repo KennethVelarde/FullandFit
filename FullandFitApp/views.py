@@ -1,6 +1,5 @@
 import os
 from FullandFitApp import nutrition_optimization
-from FullandFitApp.parsing import csv_parse
 from FullandFitApp.restaurant import restaurant_objects
 from FullandFitApp import reads
 
@@ -47,12 +46,9 @@ def menu(request, menu_id, restaurant_name):
     menu_item_dictionaries = reads.get_menu(menu_id)
 
     # # todo: convert to draw from database
-    # menu_csvfile = menu_id.split('.')[0]
 
     # todo: refactor the current restaurant building to another function
     current_restaurant.name = restaurant_name.split('.')[0]
-    # menu_items = csv_parse.get_menu_from_csv(os.path.join(STATIC_ROOT, "Menu_CSV/{}.csv".format(menu_csvfile)))
-    # current_restaurant.menu = restaurant_objects.Menu(menu_items)
     menu_items = restaurant_objects.get_menu_from_menu_item_dictionaries(menu_item_dictionaries)
     current_restaurant.menu = restaurant_objects.Menu(menu_items)
 
