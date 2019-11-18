@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-    <h1 class = "animated slideInDown">{{ restaurant.name }} Menu</h1>
+    <h1 class = "animated slideInDown">{{ restaurant_name }} Menu</h1>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
@@ -59,7 +59,7 @@
                         <input type="radio" id="caloriesbtn" name="nutrient_selection" value="calories" checked="checked"/>
                         <label for="caloriesbtn">Calories</label>
                     </td>
-                    <td><input type="number" name="calories" value="0"></td>
+                    <td><input type="number" name="calories" value="1"></td>
                     <td><p>kCal</p></td>
                 </tr>
                 <tr>
@@ -67,7 +67,7 @@
                         <input type="radio" id="carbsbtn" name="nutrient_selection" value="carbs"/>
                         <label for="carbsbtn">Carbs</label>
                     </td>
-                    <td><input type="number" name="carbs" value="0"></td>
+                    <td><input type="number" name="carbs" value="1"></td>
                     <td><p>grams</p></td>
                 </tr>
                 <tr>
@@ -75,7 +75,7 @@
                         <input type="radio" id="proteinbtn" name="nutrient_selection" value="protein"/>
                         <label for="proteinbtn">Protein</label>
                     </td>
-                    <td><input type="number" name="protein" value="0"></td>
+                    <td><input type="number" name="protein" value="1"></td>
                     <td><p>grams</p></td>
                 </tr>
                 <tr>
@@ -83,7 +83,7 @@
                         <input type="radio" id="fatbtn" name="nutrient_selection" value="fat"/>
                         <label for="fatbtn">Fat</label>
                     </td>
-                    <td><input type="number" name="fat" value="0"></td>
+                    <td><input type="number" name="fat" value="1"></td>
                     <td><p>grams</p></td>
                 </tr>
             </table>
