@@ -1,6 +1,9 @@
 # FullandFit
 A web application designed to slim thighs and save lives
 
+Visit our site at:
+http://cheatyoself.com/home
+
 # Environment  
 Tested on 
 1. Ubuntu 18.04
