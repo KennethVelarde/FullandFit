@@ -1,4 +1,4 @@
-# FullandFit
+# Cheat Yo Self
 A web application designed to slim thighs and save lives
 
 Visit our site at:
